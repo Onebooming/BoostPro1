@@ -1,0 +1,4 @@
+/home/parallels/chenglei_work/2025/BoostPro1/master/build/CMakeFiles/boost_server.dir
+/home/parallels/chenglei_work/2025/BoostPro1/master/build/CMakeFiles/boost_client.dir
+/home/parallels/chenglei_work/2025/BoostPro1/master/build/CMakeFiles/edit_cache.dir
+/home/parallels/chenglei_work/2025/BoostPro1/master/build/CMakeFiles/rebuild_cache.dir

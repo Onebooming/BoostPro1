@@ -1,0 +1,1 @@
+/usr/bin/c++ CMakeFiles/boost_server.dir/server/src/controller/compute_controller.cpp.o CMakeFiles/boost_server.dir/server/src/router/method_router.cpp.o CMakeFiles/boost_server.dir/server/src/server.cpp.o -o boost_server  -lboost_system -lpthread
