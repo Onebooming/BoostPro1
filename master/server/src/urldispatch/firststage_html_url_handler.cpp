@@ -21,6 +21,7 @@
 #include <mutex>
 #include <fstream>
 #include <sstream>
+#include <unordered_map>
 
 #include "../../../public/json.hpp"
 
@@ -39,6 +40,7 @@ std::string read_file_to_string(const std::string& filepath) {
     return contents.str();
 }
 
+#if 0
 int FirstStageHtmlHelloWordUH::url_handler(http::request<http::string_body> &request, http::response<http::string_body> &response) {
     std::string html_content = read_file_to_string("static/helloworld.html");
     if (html_content.empty()) {
@@ -63,4 +65,49 @@ int FirstStageHtmlHelloWordUH::url_handler(http::request<http::string_body> &req
 
     return 0;
 }
+#endif
+
+
+
+int FirstStageHtmlHelloWordUH::url_handler(http::request<http::string_body> &request, http::response<http::string_body> &response) {
+    static const std::unordered_map<std::string, std::string> url_file_map = {
+        {"/first_stage/htmls/helloworld", "static/helloworld.html"},
+        {"/first_stage/htmls/game", "static/game.html"},
+        // 以后可以继续扩展
+    };
+
+    std::string url = request.target().to_string();
+    auto it = url_file_map.find(url);
+    if (it == url_file_map.end()) {
+        response.version(request.version());
+        response.result(http::status::not_found);
+        response.set(http::field::server, "Boost.Beast");
+        response.set(http::field::content_type, "text/plain");
+        response.body() = "404 Not Found";
+        response.content_length(response.body().size());
+        response.keep_alive(request.keep_alive());
+        return 0;
+    }
+
+    std::string html_content = read_file_to_string(it->second);
+    if (html_content.empty()) {
+        response.version(request.version());
+        response.result(http::status::not_found);
+        response.set(http::field::server, "Boost.Beast");
+        response.set(http::field::content_type, "text/plain");
+        response.body() = "404 Not Found";
+        response.content_length(response.body().size());
+        response.keep_alive(request.keep_alive());
+    } else {
+        response.version(request.version());
+        response.result(http::status::ok);
+        response.set(http::field::server, "Boost.Beast");
+        response.set(http::field::content_type, "text/html; charset=utf-8");
+        response.body() = html_content;
+        response.content_length(response.body().size());
+        response.keep_alive(request.keep_alive());
+    }
+    return 0;
+}
+
 }

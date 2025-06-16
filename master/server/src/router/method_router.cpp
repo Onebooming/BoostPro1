@@ -4,7 +4,7 @@
  * @LastEditors: Onebooming 1026781822@qq.com
  * @LastEditTime: 2025-06-16 21:47:01
  * @FilePath: /BoostPro1/master/server/src/router/method_router.cpp
- * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
+ * @Description: json method 路由类
  */
 #include "method_router.hpp"
 

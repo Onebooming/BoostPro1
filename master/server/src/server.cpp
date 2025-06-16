@@ -2,7 +2,7 @@
  * @Author: Onebooming 1026781822@qq.com
  * @Date: 2025-06-14 18:55:50
  * @LastEditors: Onebooming 1026781822@qq.com
- * @LastEditTime: 2025-06-16 22:11:43
+ * @LastEditTime: 2025-06-16 22:35:21
  * @FilePath: /BoostPro1/master/server/src/server.cpp
  * @Description: http服务器主程序
  */
@@ -108,7 +108,7 @@ public:
 
 void init_url_router() {
     // 注册URL处理器
-    chenglei::UrlRouter::instance().registerUrl("/first_stage/htmls/helloworld",
+    chenglei::UrlRouter::instance().registerUrl("/first_stage/htmls",
         std::make_unique<chenglei::FirstStageHtmlHelloWordUH>());
     chenglei::UrlRouter::instance().registerUrl("/first_stage/json_methos",
         std::make_unique<chenglei::FirstStageJsonUrlHandler>());
