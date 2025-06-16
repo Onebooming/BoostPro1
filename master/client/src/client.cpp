@@ -2,7 +2,7 @@
  * @Author: Onebooming 1026781822@qq.com
  * @Date: 2025-06-14 18:57:50
  * @LastEditors: Onebooming 1026781822@qq.com
- * @LastEditTime: 2025-06-14 21:40:40
+ * @LastEditTime: 2025-06-15 09:12:19
  * @FilePath: /BoostPro1/master/client/src/client.cpp
  * @Description: Boost.Beast HTTP 客户端示例
  */
@@ -141,7 +141,7 @@ int test_project_helloworld_html() {
         stream.connect(results);
 
         // 你给的请求
-        http::request<http::empty_body> req{http::verb::get, "/first_stage/htmls?helloworld", version};
+        http::request<http::empty_body> req{http::verb::get, "/first_stage/htmls/helloworld", version};
         req.set(http::field::host, host);
         req.set(http::field::user_agent, BOOST_BEAST_VERSION_STRING);
 

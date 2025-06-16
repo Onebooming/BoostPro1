@@ -460,7 +460,6 @@ CMakeFiles/boost_server.dir/server/src/server.cpp.o: \
  /usr/include/boost/date_time/c_time.hpp \
  /usr/include/boost/date_time/compiler_config.hpp \
  /usr/include/boost/date_time/locale_config.hpp \
- /usr/include/boost/config/auto_link.hpp \
  /usr/include/x86_64-linux-gnu/sys/time.h \
  /usr/include/boost/shared_ptr.hpp \
  /usr/include/boost/smart_ptr/shared_ptr.hpp \
@@ -1485,7 +1484,7 @@ CMakeFiles/boost_server.dir/server/src/server.cpp.o: \
  /usr/include/c++/10/bits/fs_dir.h /usr/include/c++/10/bits/fs_ops.h \
  /usr/include/c++/10/numeric /usr/include/c++/10/bits/stl_numeric.h \
  /usr/include/c++/10/pstl/glue_numeric_defs.h /usr/include/c++/10/any \
- /home/parallels/chenglei_work/2025/BoostPro1/master/server/src/router/method_roiuter.hpp \
- /home/parallels/chenglei_work/2025/BoostPro1/master/server/src/router/../controller/base_controller.hpp \
- /home/parallels/chenglei_work/2025/BoostPro1/master/server/src/router/../controller/../../../public/json.hpp \
- /home/parallels/chenglei_work/2025/BoostPro1/master/server/src/controller/compute_controller.hpp
+ /home/parallels/chenglei_work/2025/BoostPro1/master/server/src/urldispatch/url_router.hpp \
+ /home/parallels/chenglei_work/2025/BoostPro1/master/server/src/urldispatch/baseurl_handler.hpp \
+ /home/parallels/chenglei_work/2025/BoostPro1/master/server/src/urldispatch/firststage_html_url_handler.hpp \
+ /home/parallels/chenglei_work/2025/BoostPro1/master/server/src/urldispatch/firststage_json_url_handler.hpp

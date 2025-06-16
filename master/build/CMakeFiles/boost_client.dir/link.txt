@@ -1,1 +1,1 @@
-/usr/bin/c++ CMakeFiles/boost_client.dir/client/src/client.cpp.o -o boost_client  -lboost_system -lpthread
+/usr/bin/c++ CMakeFiles/boost_client.dir/client/src/client.cpp.o -o boost_client  /usr/lib/x86_64-linux-gnu/libboost_system.so.1.71.0 -lpthread

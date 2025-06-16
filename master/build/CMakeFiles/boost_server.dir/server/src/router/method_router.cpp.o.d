@@ -1,7 +1,7 @@
 CMakeFiles/boost_server.dir/server/src/router/method_router.cpp.o: \
  /home/parallels/chenglei_work/2025/BoostPro1/master/server/src/router/method_router.cpp \
  /usr/include/stdc-predef.h \
- /home/parallels/chenglei_work/2025/BoostPro1/master/server/src/router/method_roiuter.hpp \
+ /home/parallels/chenglei_work/2025/BoostPro1/master/server/src/router/method_router.hpp \
  /usr/include/c++/10/string \
  /usr/include/x86_64-linux-gnu/c++/10/bits/c++config.h \
  /usr/include/x86_64-linux-gnu/c++/10/bits/os_defines.h \
