@@ -1487,4 +1487,15 @@ CMakeFiles/boost_server.dir/server/src/server.cpp.o: \
  /home/parallels/chenglei_work/2025/BoostPro1/master/server/src/urldispatch/url_router.hpp \
  /home/parallels/chenglei_work/2025/BoostPro1/master/server/src/urldispatch/baseurl_handler.hpp \
  /home/parallels/chenglei_work/2025/BoostPro1/master/server/src/urldispatch/firststage_html_url_handler.hpp \
- /home/parallels/chenglei_work/2025/BoostPro1/master/server/src/urldispatch/firststage_json_url_handler.hpp
+ /home/parallels/chenglei_work/2025/BoostPro1/master/server/src/urldispatch/firststage_json_url_handler.hpp \
+ /home/parallels/chenglei_work/2025/BoostPro1/master/server/src/database/mysql_pro.hpp \
+ /usr/include/mysql/mysql.h \
+ /usr/lib/gcc/x86_64-linux-gnu/10/include/stdbool.h \
+ /usr/include/mysql/field_types.h /usr/include/mysql/my_list.h \
+ /usr/include/mysql/mysql_com.h /usr/include/mysql/my_command.h \
+ /usr/include/mysql/my_compress.h \
+ /usr/include/mysql/udf_registration_types.h \
+ /usr/include/mysql/client_plugin.h /usr/include/c++/10/stdlib.h \
+ /usr/include/mysql/plugin_auth_common.h \
+ /usr/include/mysql/mysql_version.h /usr/include/mysql/mysql_time.h \
+ /usr/include/mysql/errmsg.h

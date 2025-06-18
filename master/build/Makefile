@@ -190,6 +190,30 @@ server/src/controller/compute_controller.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/boost_server.dir/build.make CMakeFiles/boost_server.dir/server/src/controller/compute_controller.cpp.s
 .PHONY : server/src/controller/compute_controller.cpp.s
 
+server/src/database/mysql_pro.o: server/src/database/mysql_pro.cpp.o
+.PHONY : server/src/database/mysql_pro.o
+
+# target to build an object file
+server/src/database/mysql_pro.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/boost_server.dir/build.make CMakeFiles/boost_server.dir/server/src/database/mysql_pro.cpp.o
+.PHONY : server/src/database/mysql_pro.cpp.o
+
+server/src/database/mysql_pro.i: server/src/database/mysql_pro.cpp.i
+.PHONY : server/src/database/mysql_pro.i
+
+# target to preprocess a source file
+server/src/database/mysql_pro.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/boost_server.dir/build.make CMakeFiles/boost_server.dir/server/src/database/mysql_pro.cpp.i
+.PHONY : server/src/database/mysql_pro.cpp.i
+
+server/src/database/mysql_pro.s: server/src/database/mysql_pro.cpp.s
+.PHONY : server/src/database/mysql_pro.s
+
+# target to generate assembly for a file
+server/src/database/mysql_pro.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/boost_server.dir/build.make CMakeFiles/boost_server.dir/server/src/database/mysql_pro.cpp.s
+.PHONY : server/src/database/mysql_pro.cpp.s
+
 server/src/router/method_router.o: server/src/router/method_router.cpp.o
 .PHONY : server/src/router/method_router.o
 
@@ -326,6 +350,9 @@ help:
 	@echo "... server/src/controller/compute_controller.o"
 	@echo "... server/src/controller/compute_controller.i"
 	@echo "... server/src/controller/compute_controller.s"
+	@echo "... server/src/database/mysql_pro.o"
+	@echo "... server/src/database/mysql_pro.i"
+	@echo "... server/src/database/mysql_pro.s"
 	@echo "... server/src/router/method_router.o"
 	@echo "... server/src/router/method_router.i"
 	@echo "... server/src/router/method_router.s"

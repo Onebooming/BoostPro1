@@ -2,7 +2,7 @@
  * @Author: Onebooming 1026781822@qq.com
  * @Date: 2025-06-14 18:55:50
  * @LastEditors: Onebooming 1026781822@qq.com
- * @LastEditTime: 2025-06-16 22:35:21
+ * @LastEditTime: 2025-06-18 23:56:11
  * @FilePath: /BoostPro1/master/server/src/server.cpp
  * @Description: http服务器主程序
  */
@@ -26,6 +26,7 @@
 #include "urldispatch/url_router.hpp"
 #include "urldispatch/firststage_html_url_handler.hpp"
 #include "urldispatch/firststage_json_url_handler.hpp"
+#include "database/mysql_pro.hpp"
 
 using tcp = boost::asio::ip::tcp; // from <boost/asio/ip/tcp.hpp>
 namespace http = boost::beast::http; // from <boost/beast/http.hpp>
@@ -117,7 +118,9 @@ void init_url_router() {
 }
 
 int main() {
+    init_mysql_module();
     init_url_router();
+
     auto const address = boost::asio::ip::make_address(HTTP_SERVER_ADDR);
     unsigned short port = HTTP_PORT;
     boost::asio::io_context ioc{};
@@ -132,5 +135,8 @@ int main() {
         threads.emplace_back([&ioc] { ioc.run(); });
     }
     for (auto& t : threads) t.join();
+
+    finish_mysql_module();
+    
     return 0;
 }

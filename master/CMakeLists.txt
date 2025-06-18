@@ -15,12 +15,21 @@ if(NOT Boost_FOUND)
 endif()
 include_directories(${Boost_INCLUDE_DIRS})
 
+# 推荐：查找MySQL库
+find_path(MYSQL_INCLUDE_DIR mysql.h PATHS /usr/include/mysql /usr/local/include/mysql)
+find_library(MYSQL_LIB mysqlclient PATHS /usr/lib /usr/local/lib /usr/lib/x86_64-linux-gnu)
+if(NOT MYSQL_INCLUDE_DIR OR NOT MYSQL_LIB)
+    message(FATAL_ERROR "MySQL client library not found!")
+endif()
+include_directories(${MYSQL_INCLUDE_DIR})
+
 # 可选：设置头文件搜索路径（根据实际项目结构调整）
 include_directories(
     ${PROJECT_SOURCE_DIR}/server/src
     ${PROJECT_SOURCE_DIR}/server/src/controller
     ${PROJECT_SOURCE_DIR}/server/src/router
     ${PROJECT_SOURCE_DIR}/server/src/urldispatch
+    ${PROJECT_SOURCE_DIR}/server/src/database
     ${PROJECT_SOURCE_DIR}/client/src
 )
 
@@ -31,11 +40,12 @@ set(SERVER_SOURCES
     server/src/urldispatch/url_router.cpp
     server/src/urldispatch/firststage_json_url_handler.cpp
     server/src/urldispatch/firststage_html_url_handler.cpp
+    server/src/database/mysql_pro.cpp
     server/src/server.cpp
 )
 
 add_executable(boost_server ${SERVER_SOURCES})
-target_link_libraries(boost_server PRIVATE Boost::system pthread)
+target_link_libraries(boost_server PRIVATE Boost::system pthread ${MYSQL_LIB})
 target_compile_features(boost_server PRIVATE cxx_std_20)
 
 add_executable(boost_client client/src/client.cpp)

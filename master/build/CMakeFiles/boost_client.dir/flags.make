@@ -4,7 +4,7 @@
 # compile CXX with /usr/bin/c++
 CXX_DEFINES = -DBOOST_ALL_NO_LIB -DBOOST_SYSTEM_DYN_LINK
 
-CXX_INCLUDES = -I/home/parallels/chenglei_work/2025/BoostPro1/master/server/src -I/home/parallels/chenglei_work/2025/BoostPro1/master/server/src/controller -I/home/parallels/chenglei_work/2025/BoostPro1/master/server/src/router -I/home/parallels/chenglei_work/2025/BoostPro1/master/server/src/urldispatch -I/home/parallels/chenglei_work/2025/BoostPro1/master/client/src
+CXX_INCLUDES = -I/usr/include/mysql -I/home/parallels/chenglei_work/2025/BoostPro1/master/server/src -I/home/parallels/chenglei_work/2025/BoostPro1/master/server/src/controller -I/home/parallels/chenglei_work/2025/BoostPro1/master/server/src/router -I/home/parallels/chenglei_work/2025/BoostPro1/master/server/src/urldispatch -I/home/parallels/chenglei_work/2025/BoostPro1/master/server/src/database -I/home/parallels/chenglei_work/2025/BoostPro1/master/client/src
 
 CXX_FLAGS = -std=gnu++2a -g -Wall
 
