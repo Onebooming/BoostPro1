@@ -1,6 +1,9 @@
-CMakeFiles/boost_server.dir/server/src/server.cpp.o: \
- /home/parallels/chenglei_work/2025/BoostPro1/master/server/src/server.cpp \
- /usr/include/stdc-predef.h /usr/include/boost/beast/core.hpp \
+CMakeFiles/boost_server.dir/server/src/urldispatch/student_url_handler.cpp.o: \
+ /home/parallels/chenglei_work/2025/BoostPro1/master/server/src/urldispatch/student_url_handler.cpp \
+ /usr/include/stdc-predef.h \
+ /home/parallels/chenglei_work/2025/BoostPro1/master/server/src/urldispatch/student_url_handler.hpp \
+ /home/parallels/chenglei_work/2025/BoostPro1/master/server/src/urldispatch/baseurl_handler.hpp \
+ /usr/include/boost/beast/core.hpp \
  /usr/include/boost/beast/core/detail/config.hpp \
  /usr/include/boost/config.hpp /usr/include/boost/config/user.hpp \
  /usr/include/boost/config/detail/select_compiler_config.hpp \
@@ -1460,44 +1463,5 @@ CMakeFiles/boost_server.dir/server/src/server.cpp.o: \
  /usr/include/boost/asio/windows/random_access_handle.hpp \
  /usr/include/boost/asio/windows/stream_handle.hpp \
  /usr/include/boost/asio/write_at.hpp \
- /usr/include/boost/asio/impl/write_at.hpp /usr/include/c++/10/iostream \
- /usr/include/c++/10/fstream \
- /usr/include/x86_64-linux-gnu/c++/10/bits/basic_file.h \
- /usr/include/x86_64-linux-gnu/c++/10/bits/c++io.h \
- /usr/include/c++/10/bits/fstream.tcc \
- /home/parallels/chenglei_work/2025/BoostPro1/master/server/src/../../public/basedata.hpp \
- /home/parallels/chenglei_work/2025/BoostPro1/master/server/src/../../public/json.hpp \
- /usr/include/c++/10/forward_list /usr/include/c++/10/bits/forward_list.h \
- /usr/include/c++/10/bits/forward_list.tcc /usr/include/c++/10/valarray \
- /usr/include/c++/10/bits/valarray_array.h \
- /usr/include/c++/10/bits/valarray_array.tcc \
- /usr/include/c++/10/bits/valarray_before.h \
- /usr/include/c++/10/bits/slice_array.h \
- /usr/include/c++/10/bits/valarray_after.h \
- /usr/include/c++/10/bits/gslice.h \
- /usr/include/c++/10/bits/gslice_array.h \
- /usr/include/c++/10/bits/mask_array.h \
- /usr/include/c++/10/bits/indirect_array.h /usr/include/c++/10/version \
- /usr/include/c++/10/filesystem /usr/include/c++/10/bits/fs_fwd.h \
- /usr/include/c++/10/bits/fs_path.h /usr/include/c++/10/iomanip \
- /usr/include/c++/10/bits/quoted_string.h /usr/include/c++/10/codecvt \
- /usr/include/c++/10/bits/fs_dir.h /usr/include/c++/10/bits/fs_ops.h \
- /usr/include/c++/10/numeric /usr/include/c++/10/bits/stl_numeric.h \
- /usr/include/c++/10/pstl/glue_numeric_defs.h /usr/include/c++/10/any \
- /home/parallels/chenglei_work/2025/BoostPro1/master/server/src/urldispatch/url_router.hpp \
- /home/parallels/chenglei_work/2025/BoostPro1/master/server/src/urldispatch/baseurl_handler.hpp \
- /home/parallels/chenglei_work/2025/BoostPro1/master/server/src/urldispatch/firststage_html_url_handler.hpp \
- /home/parallels/chenglei_work/2025/BoostPro1/master/server/src/urldispatch/firststage_json_url_handler.hpp \
- /home/parallels/chenglei_work/2025/BoostPro1/master/server/src/urldispatch/student_url_handler.hpp \
- /home/parallels/chenglei_work/2025/BoostPro1/master/server/src/urldispatch/../controller/student_controller.hpp \
- /home/parallels/chenglei_work/2025/BoostPro1/master/server/src/database/mysql_pro.hpp \
- /usr/include/mysql/mysql.h \
- /usr/lib/gcc/x86_64-linux-gnu/10/include/stdbool.h \
- /usr/include/mysql/field_types.h /usr/include/mysql/my_list.h \
- /usr/include/mysql/mysql_com.h /usr/include/mysql/my_command.h \
- /usr/include/mysql/my_compress.h \
- /usr/include/mysql/udf_registration_types.h \
- /usr/include/mysql/client_plugin.h /usr/include/c++/10/stdlib.h \
- /usr/include/mysql/plugin_auth_common.h \
- /usr/include/mysql/mysql_version.h /usr/include/mysql/mysql_time.h \
- /usr/include/mysql/errmsg.h
+ /usr/include/boost/asio/impl/write_at.hpp \
+ /home/parallels/chenglei_work/2025/BoostPro1/master/server/src/urldispatch/../controller/student_controller.hpp

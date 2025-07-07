@@ -2,7 +2,7 @@
  * @Author: Onebooming 1026781822@qq.com
  * @Date: 2025-06-15 13:20:03
  * @LastEditors: Onebooming 1026781822@qq.com
- * @LastEditTime: 2025-06-16 22:34:40
+ * @LastEditTime: 2025-07-07 22:58:52
  * @FilePath: /BoostPro1/master/server/src/urldispatch/url_router.cpp
  * @Description: url路由器实现类
  */
@@ -15,6 +15,7 @@ namespace chenglei {
         handlers_[url] = std::move(handler);
     }
 
+#if 0
 BaseUrlHandler* UrlRouter::get(const std::string& request_url) {
     if (request_url.empty() || request_url[0] != '/') return nullptr;
     std::lock_guard<std::mutex> lock(mutex_);
@@ -27,6 +28,34 @@ BaseUrlHandler* UrlRouter::get(const std::string& request_url) {
             // 精确匹配或 prefix 后面跟 /
             if (request_url.size() == prefix.size() ||
                 request_url[prefix.size()] == '/') {
+                if (prefix.size() > best_len) {
+                    best = handler_ptr.get();
+                    best_len = prefix.size();
+                }
+            }
+        }
+    }
+    return best;
+}
+#endif
+
+BaseUrlHandler* UrlRouter::get(const std::string& request_url) {
+    if (request_url.empty() || request_url[0] != '/') return nullptr;
+    std::lock_guard<std::mutex> lock(mutex_);
+
+    // 新增：仅保留 '?' 之前的部分
+    std::string path_only = request_url;
+    size_t qpos = path_only.find('?');
+    if (qpos != std::string::npos) {
+        path_only = path_only.substr(0, qpos);
+    }
+
+    BaseUrlHandler* best = nullptr;
+    size_t best_len = 0;
+    for (const auto& [prefix, handler_ptr] : handlers_) {
+        if (path_only.compare(0, prefix.size(), prefix) == 0) {
+            if (path_only.size() == prefix.size() ||
+                path_only[prefix.size()] == '/') {
                 if (prefix.size() > best_len) {
                     best = handler_ptr.get();
                     best_len = prefix.size();

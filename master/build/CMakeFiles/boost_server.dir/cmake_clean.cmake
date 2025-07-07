@@ -1,6 +1,8 @@
 file(REMOVE_RECURSE
   "CMakeFiles/boost_server.dir/server/src/controller/compute_controller.cpp.o"
   "CMakeFiles/boost_server.dir/server/src/controller/compute_controller.cpp.o.d"
+  "CMakeFiles/boost_server.dir/server/src/controller/student_controller.cpp.o"
+  "CMakeFiles/boost_server.dir/server/src/controller/student_controller.cpp.o.d"
   "CMakeFiles/boost_server.dir/server/src/database/mysql_pro.cpp.o"
   "CMakeFiles/boost_server.dir/server/src/database/mysql_pro.cpp.o.d"
   "CMakeFiles/boost_server.dir/server/src/router/method_router.cpp.o"
@@ -11,6 +13,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/boost_server.dir/server/src/urldispatch/firststage_html_url_handler.cpp.o.d"
   "CMakeFiles/boost_server.dir/server/src/urldispatch/firststage_json_url_handler.cpp.o"
   "CMakeFiles/boost_server.dir/server/src/urldispatch/firststage_json_url_handler.cpp.o.d"
+  "CMakeFiles/boost_server.dir/server/src/urldispatch/student_url_handler.cpp.o"
+  "CMakeFiles/boost_server.dir/server/src/urldispatch/student_url_handler.cpp.o.d"
   "CMakeFiles/boost_server.dir/server/src/urldispatch/url_router.cpp.o"
   "CMakeFiles/boost_server.dir/server/src/urldispatch/url_router.cpp.o.d"
   "boost_server"

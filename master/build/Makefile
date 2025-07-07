@@ -190,6 +190,30 @@ server/src/controller/compute_controller.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/boost_server.dir/build.make CMakeFiles/boost_server.dir/server/src/controller/compute_controller.cpp.s
 .PHONY : server/src/controller/compute_controller.cpp.s
 
+server/src/controller/student_controller.o: server/src/controller/student_controller.cpp.o
+.PHONY : server/src/controller/student_controller.o
+
+# target to build an object file
+server/src/controller/student_controller.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/boost_server.dir/build.make CMakeFiles/boost_server.dir/server/src/controller/student_controller.cpp.o
+.PHONY : server/src/controller/student_controller.cpp.o
+
+server/src/controller/student_controller.i: server/src/controller/student_controller.cpp.i
+.PHONY : server/src/controller/student_controller.i
+
+# target to preprocess a source file
+server/src/controller/student_controller.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/boost_server.dir/build.make CMakeFiles/boost_server.dir/server/src/controller/student_controller.cpp.i
+.PHONY : server/src/controller/student_controller.cpp.i
+
+server/src/controller/student_controller.s: server/src/controller/student_controller.cpp.s
+.PHONY : server/src/controller/student_controller.s
+
+# target to generate assembly for a file
+server/src/controller/student_controller.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/boost_server.dir/build.make CMakeFiles/boost_server.dir/server/src/controller/student_controller.cpp.s
+.PHONY : server/src/controller/student_controller.cpp.s
+
 server/src/database/mysql_pro.o: server/src/database/mysql_pro.cpp.o
 .PHONY : server/src/database/mysql_pro.o
 
@@ -310,6 +334,30 @@ server/src/urldispatch/firststage_json_url_handler.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/boost_server.dir/build.make CMakeFiles/boost_server.dir/server/src/urldispatch/firststage_json_url_handler.cpp.s
 .PHONY : server/src/urldispatch/firststage_json_url_handler.cpp.s
 
+server/src/urldispatch/student_url_handler.o: server/src/urldispatch/student_url_handler.cpp.o
+.PHONY : server/src/urldispatch/student_url_handler.o
+
+# target to build an object file
+server/src/urldispatch/student_url_handler.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/boost_server.dir/build.make CMakeFiles/boost_server.dir/server/src/urldispatch/student_url_handler.cpp.o
+.PHONY : server/src/urldispatch/student_url_handler.cpp.o
+
+server/src/urldispatch/student_url_handler.i: server/src/urldispatch/student_url_handler.cpp.i
+.PHONY : server/src/urldispatch/student_url_handler.i
+
+# target to preprocess a source file
+server/src/urldispatch/student_url_handler.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/boost_server.dir/build.make CMakeFiles/boost_server.dir/server/src/urldispatch/student_url_handler.cpp.i
+.PHONY : server/src/urldispatch/student_url_handler.cpp.i
+
+server/src/urldispatch/student_url_handler.s: server/src/urldispatch/student_url_handler.cpp.s
+.PHONY : server/src/urldispatch/student_url_handler.s
+
+# target to generate assembly for a file
+server/src/urldispatch/student_url_handler.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/boost_server.dir/build.make CMakeFiles/boost_server.dir/server/src/urldispatch/student_url_handler.cpp.s
+.PHONY : server/src/urldispatch/student_url_handler.cpp.s
+
 server/src/urldispatch/url_router.o: server/src/urldispatch/url_router.cpp.o
 .PHONY : server/src/urldispatch/url_router.o
 
@@ -350,6 +398,9 @@ help:
 	@echo "... server/src/controller/compute_controller.o"
 	@echo "... server/src/controller/compute_controller.i"
 	@echo "... server/src/controller/compute_controller.s"
+	@echo "... server/src/controller/student_controller.o"
+	@echo "... server/src/controller/student_controller.i"
+	@echo "... server/src/controller/student_controller.s"
 	@echo "... server/src/database/mysql_pro.o"
 	@echo "... server/src/database/mysql_pro.i"
 	@echo "... server/src/database/mysql_pro.s"
@@ -365,6 +416,9 @@ help:
 	@echo "... server/src/urldispatch/firststage_json_url_handler.o"
 	@echo "... server/src/urldispatch/firststage_json_url_handler.i"
 	@echo "... server/src/urldispatch/firststage_json_url_handler.s"
+	@echo "... server/src/urldispatch/student_url_handler.o"
+	@echo "... server/src/urldispatch/student_url_handler.i"
+	@echo "... server/src/urldispatch/student_url_handler.s"
 	@echo "... server/src/urldispatch/url_router.o"
 	@echo "... server/src/urldispatch/url_router.i"
 	@echo "... server/src/urldispatch/url_router.s"

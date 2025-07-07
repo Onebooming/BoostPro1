@@ -30,16 +30,19 @@ include_directories(
     ${PROJECT_SOURCE_DIR}/server/src/router
     ${PROJECT_SOURCE_DIR}/server/src/urldispatch
     ${PROJECT_SOURCE_DIR}/server/src/database
+    ${PROJECT_SOURCE_DIR}/server/src/dao
     ${PROJECT_SOURCE_DIR}/client/src
 )
 
 # Server源文件列表（便于维护，可扩展）
 set(SERVER_SOURCES
     server/src/controller/compute_controller.cpp
+    server/src/controller/student_controller.cpp
     server/src/router/method_router.cpp
     server/src/urldispatch/url_router.cpp
     server/src/urldispatch/firststage_json_url_handler.cpp
     server/src/urldispatch/firststage_html_url_handler.cpp
+    server/src/urldispatch/student_url_handler.cpp
     server/src/database/mysql_pro.cpp
     server/src/server.cpp
 )
