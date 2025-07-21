@@ -31,6 +31,7 @@ include_directories(
     ${PROJECT_SOURCE_DIR}/server/src/urldispatch
     ${PROJECT_SOURCE_DIR}/server/src/database
     ${PROJECT_SOURCE_DIR}/server/src/dao
+    ${PROJECT_SOURCE_DIR}/server/src/util
     ${PROJECT_SOURCE_DIR}/client/src
 )
 

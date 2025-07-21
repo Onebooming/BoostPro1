@@ -2,7 +2,7 @@
  * @Author: Onebooming 1026781822@qq.com
  * @Date: 2025-07-07 22:34:05
  * @LastEditors: Onebooming 1026781822@qq.com
- * @LastEditTime: 2025-07-21 22:15:07
+ * @LastEditTime: 2025-07-21 23:00:58
  * @FilePath: /BoostPro1/master/server/src/controller/student_controller.cpp
  * @Description: student controller 类的文件
  */
@@ -11,9 +11,30 @@
 #include "../dao/student_dao.hpp"
 #include "../../../public/json.hpp"
 
+#include "../utils/snowflake.hpp"
+
 using json = nlohmann::json;
 
 namespace chenglei {
+
+void transStuObj2Json(const StudentBaseInfo &stuObj, json &stuJson)
+{
+    stuJson = {
+        {"id", stuObj.getID()},
+        {"name", stuObj.getName()},
+        {"birth_date", stuObj.getBirthDate()},
+        {"address", stuObj.getAddress()},
+        {"gender", stuObj.getGender()},
+        {"hobby", stuObj.getHobby()},
+        {"phone_number", stuObj.getPhoneNumber()},
+        {"father_name", stuObj.getFatherName()},
+        {"mother_name", stuObj.getMotherName()},
+        {"grade", stuObj.getGrade()},
+        {"class_name", stuObj.getClassName()},
+        {"major", stuObj.getMajor()},
+        {"student_id", stuObj.getStudentID()}
+    };
+}
 
 std::string StudentController::query_student(const std::string& id, const std::string& name) {
     // 实际业务可查数据库/内存等
@@ -22,10 +43,19 @@ std::string StudentController::query_student(const std::string& id, const std::s
         result = { {"id", id}, {"name", "example_name"} }; // 示例
     } else if (!name.empty()) {
         result = { {"id", "1"}, {"name", name} }; //从数据库查
-        /* 从mysql数据库查询真正的数据 */
-        
+        /* 从mysql数据库查询真正的数据 */   
     } else {
-        result = { {"error", "missing parameter"} };
+        /* 获取所有的学生数据 */
+        json arr = json::array();
+        StudentDao stuDao;
+        std::vector<StudentBaseInfo> studentList = stuDao.selectAllStudents();
+        for(auto& stu : studentList)
+        {
+            json stuJson;
+            transStuObj2Json(stu, stuJson);
+            arr.push_back(stuJson);
+        }
+        result = arr;
     }
     return result.dump();
 }
@@ -34,6 +64,9 @@ std::string StudentController::query_student(const std::string& id, const std::s
 StudentBaseInfo json_to_SB_obj(const json &req)
 {
     StudentBaseInfo stu;
+
+    std::string global_id = chenglei::SnowflakeIDGenerator::instance().next_id();
+    stu.setID(global_id);
 
     if(req.contains("name"))
         stu.setName(req.value("name", ""));
