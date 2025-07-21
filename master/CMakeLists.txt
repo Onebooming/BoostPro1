@@ -38,6 +38,8 @@ include_directories(
 set(SERVER_SOURCES
     server/src/controller/compute_controller.cpp
     server/src/controller/student_controller.cpp
+    server/src/dao/student_dao.cpp
+    server/src/controller/student_controller.cpp
     server/src/router/method_router.cpp
     server/src/urldispatch/url_router.cpp
     server/src/urldispatch/firststage_json_url_handler.cpp

@@ -1,0 +1,29 @@
+
+
+帮忙写一个student_manage.html的页面，该页面支持两个功能：
+功能1：页面中支持添加学生信息,允许用户填入姓名、生日、性别、爱好、手机号、爸爸名字、妈妈名字、年级、班级、专业、学生号等信息
+    该功能中，前台页面给后台服务器发送请求如下：
+        url：http://localhost:20080/first_stage/student
+        http method:post
+        http body:
+            {
+                "name" : "Job Biden",
+                "birth_date" : "1994-08-20",
+                "gender" : "male",
+                "hobby" : "mashaji",
+                "phone_number" : "7874728828",
+                "father_name" : "Old Job",
+                "mother_name" : "Yang Job",
+                "grade" : "first grade",
+                "class_name" : "HardWord Class",
+                "major" : "Geology",
+                "student_id" : "2022010001",
+            }
+
+功能2：页面中显示所学生的列表
+    该功能中，前台页面给后台服务器发送请求如下：
+        url：http://localhost:20080/first_stage/student
+        http method:get
+
+
+这是

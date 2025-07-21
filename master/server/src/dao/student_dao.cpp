@@ -1,148 +1,190 @@
 #include "student_dao.hpp"
+#include "../database/mysql_pro.hpp"
+#include <mysql/mysql.h>
 #include <iostream>
 
 namespace chenglei {
 
-StudentDAO::StudentDAO() : connection_(nullptr) {
-    if (!connectToDatabase()) {
-        std::cerr << "Failed to connect to database!" << std::endl;
-    }
+namespace {
+// 工具：从MYSQL_ROW构造StudentBaseInfo
+StudentBaseInfo row_to_student(const MYSQL_ROW row) {
+    StudentBaseInfo s;
+    s.setID(row[0] ? row[0] : "");
+    s.setName(row[1] ? row[1] : "");
+    s.setBirthDate(row[2] ? row[2] : "");
+    s.setAddress(row[3] ? row[3] : "");
+    s.setGender(row[4] ? row[4] : "");
+    s.setHobby(row[5] ? row[5] : "");
+    s.setPhoneNumber(row[6] ? row[6] : "");
+    s.setFatherName(row[7] ? row[7] : "");
+    s.setMotherName(row[8] ? row[8] : "");
+    s.setGrade(row[9] ? row[9] : "");
+    s.setClassName(row[10] ? row[10] : "");
+    s.setMajor(row[11] ? row[11] : "");
+    s.setStudentID(row[12] ? row[12] : "");
+    return s;
+}
 }
 
-StudentDAO::~StudentDAO() {
-    closeConnection();
-}
+// 增
+bool StudentDao::insertStudent(const StudentBaseInfo& student) {
+    auto conn_client = MySQLConnectionManager::instance().getConnection("boostpro1", "127.0.0.1", "root", "root", 3306);
+    if (!conn_client) return false;
+    MYSQL* conn = conn_client->get();
 
-bool StudentDAO::connectToDatabase() {
-    connection_ = mysql_init(nullptr);
-    if (!connection_) {
-        std::cerr << "MySQL initialization failed!" << std::endl;
-        return false;
-    }
+    std::string sql =
+        "INSERT INTO students (id, name, birth_date, address, gender, hobby, phone_number, father_name, mother_name, grade, class_name, major, student_id) "
+        "VALUES ('" + student.getID() + "', '" + student.getName() + "', '" + student.getBirthDate() + "', '" +
+        student.getAddress() + "', '" + student.getGender() + "', '" + student.getHobby() + "', '" +
+        student.getPhoneNumber() + "', '" + student.getFatherName() + "', '" + student.getMotherName() + "', '" +
+        student.getGrade() + "', '" + student.getClassName() + "', '" + student.getMajor() + "', '" +
+        student.getStudentID() + "')";
 
-    // Replace with your database credentials
-    if (!mysql_real_connect(connection_, "localhost", "root", "password", "student_db", 3306, nullptr, 0)) {
-        std::cerr << "MySQL connection error: " << mysql_error(connection_) << std::endl;
-        return false;
-    }
-    return true;
-}
-
-void StudentDAO::closeConnection() {
-    if (connection_) {
-        mysql_close(connection_);
-        connection_ = nullptr;
-    }
-}
-
-bool StudentDAO::addStudent(const StudentBaseInfo& student) {
-    // 检查表是否存在，如果不存在则创建
-    std::string checkTableQuery = "SHOW TABLES LIKE 'students'";
-    if (mysql_query(connection_, checkTableQuery.c_str())) {
-        std::cerr << "Check table existence failed: " << mysql_error(connection_) << std::endl;
-        return false;
-    }
-
-    MYSQL_RES* result = mysql_store_result(connection_);
-    if (!result) {
-        std::cerr << "Check table result error: " << mysql_error(connection_) << std::endl;
-        return false;
-    }
-
-    if (mysql_num_rows(result) == 0) {
-        // 表不存在，创建表
-        std::string createTableQuery = R"(
-            CREATE TABLE students (
-                id VARCHAR(255) PRIMARY KEY,
-                name VARCHAR(255),
-                birth_date DATE,
-                address VARCHAR(255),
-                gender VARCHAR(50),
-                hobby VARCHAR(255),
-                phone_number VARCHAR(50),
-                father_name VARCHAR(255),
-                mother_name VARCHAR(255),
-                grade VARCHAR(50),
-                class_name VARCHAR(50),
-                major VARCHAR(255),
-                student_id VARCHAR(255) UNIQUE
-            )
-        )";
-        if (mysql_query(connection_, createTableQuery.c_str())) {
-            std::cerr << "Create table failed: " << mysql_error(connection_) << std::endl;
-            mysql_free_result(result);
-            return false;
-        }
-    }
-    mysql_free_result(result);
-
-    // 插入学生信息
-    std::string query = "INSERT INTO students (id, name, birth_date, address, gender, hobby, phone_number, father_name, mother_name, grade, class_name, major, student_id) VALUES ('" +
-                        student.getID() + "', '" + student.getName() + "', '" + student.getBirthDate() + "', '" + student.getAddress() + "', '" + student.getGender() + "', '" +
-                        student.getHobby() + "', '" + student.getPhoneNumber() + "', '" + student.getFatherName() + "', '" + student.getMotherName() + "', '" + student.getGrade() +
-                        "', '" + student.getClassName() + "', '" + student.getMajor() + "', '" + student.getStudentID() + "')";
-    if (mysql_query(connection_, query.c_str())) {
-        std::cerr << "Add student failed: " << mysql_error(connection_) << std::endl;
+    int ret = mysql_query(conn, sql.c_str());
+    if (ret != 0) {
+        std::cerr << "Insert Error: " << mysql_error(conn) << std::endl;
         return false;
     }
     return true;
 }
 
-bool StudentDAO::deleteStudent(const std::string& student_id) {
-    std::string query = "DELETE FROM students WHERE student_id = '" + student_id + "'";
-    if (mysql_query(connection_, query.c_str())) {
-        std::cerr << "Delete student failed: " << mysql_error(connection_) << std::endl;
+// 删
+bool StudentDao::deleteStudentById(const std::string& id) {
+    auto conn_client = MySQLConnectionManager::instance().getConnection("boostpro1", "127.0.0.1", "root", "root", 3306);
+    if (!conn_client) return false;
+    MYSQL* conn = conn_client->get();
+
+    std::string sql = "DELETE FROM students WHERE id='" + id + "'";
+    int ret = mysql_query(conn, sql.c_str());
+    if (ret != 0) {
+        std::cerr << "Delete Error: " << mysql_error(conn) << std::endl;
         return false;
     }
     return true;
 }
 
-bool StudentDAO::updateStudent(const StudentBaseInfo& student) {
-    std::string query = "UPDATE students SET name = '" + student.getName() + "', birth_date = '" + student.getBirthDate() + "', address = '" + student.getAddress() +
-                        "', gender = '" + student.getGender() + "', hobby = '" + student.getHobby() + "', phone_number = '" + student.getPhoneNumber() +
-                        "', father_name = '" + student.getFatherName() + "', mother_name = '" + student.getMotherName() + "', grade = '" + student.getGrade() +
-                        "', class_name = '" + student.getClassName() + "', major = '" + student.getMajor() + "' WHERE student_id = '" + student.getStudentID() + "'";
-    if (mysql_query(connection_, query.c_str())) {
-        std::cerr << "Update student failed: " << mysql_error(connection_) << std::endl;
+// 改
+bool StudentDao::updateStudent(const StudentBaseInfo& student) {
+    auto conn_client = MySQLConnectionManager::instance().getConnection("boostpro1", "127.0.0.1", "root", "root", 3306);
+    if (!conn_client) return false;
+    MYSQL* conn = conn_client->get();
+
+    std::string sql =
+        "UPDATE students SET name='" + student.getName() +
+        "', birth_date='" + student.getBirthDate() +
+        "', address='" + student.getAddress() +
+        "', gender='" + student.getGender() +
+        "', hobby='" + student.getHobby() +
+        "', phone_number='" + student.getPhoneNumber() +
+        "', father_name='" + student.getFatherName() +
+        "', mother_name='" + student.getMotherName() +
+        "', grade='" + student.getGrade() +
+        "', class_name='" + student.getClassName() +
+        "', major='" + student.getMajor() +
+        "', student_id='" + student.getStudentID() +
+        "' WHERE id='" + student.getID() + "'";
+
+    int ret = mysql_query(conn, sql.c_str());
+    if (ret != 0) {
+        std::cerr << "Update Error: " << mysql_error(conn) << std::endl;
         return false;
     }
     return true;
 }
 
-StudentBaseInfo StudentDAO::getStudent(const std::string& student_id) {
-    std::string query = "SELECT * FROM students WHERE student_id = '" + student_id + "'";
-    StudentBaseInfo student;
+// 查单个
+std::optional<StudentBaseInfo> StudentDao::selectStudentById(const std::string& id) {
+    auto conn_client = MySQLConnectionManager::instance().getConnection("boostpro1", "127.0.0.1", "root", "root", 3306);
+    if (!conn_client) return std::nullopt;
+    MYSQL* conn = conn_client->get();
 
-    if (mysql_query(connection_, query.c_str())) {
-        std::cerr << "Get student failed: " << mysql_error(connection_) << std::endl;
-        return student;
+    std::string sql = "SELECT * FROM students WHERE id='" + id + "'";
+    int ret = mysql_query(conn, sql.c_str());
+    if (ret != 0) {
+        std::cerr << "Select Error: " << mysql_error(conn) << std::endl;
+        return std::nullopt;
     }
-
-    MYSQL_RES* result = mysql_store_result(connection_);
-    if (!result) {
-        std::cerr << "Get student result error: " << mysql_error(connection_) << std::endl;
-        return student;
-    }
-
-    MYSQL_ROW row = mysql_fetch_row(result);
+    MYSQL_RES* res = mysql_store_result(conn);
+    if (!res) return std::nullopt;
+    MYSQL_ROW row = mysql_fetch_row(res);
     if (row) {
-        student.setID(row[0]);
-        student.setName(row[1]);
-        student.setBirthDate(row[2]);
-        student.setAddress(row[3]);
-        student.setGender(row[4]);
-        student.setHobby(row[5]);
-        student.setPhoneNumber(row[6]);
-        student.setFatherName(row[7]);
-        student.setMotherName(row[8]);
-        student.setGrade(row[9]);
-        student.setClassName(row[10]);
-        student.setMajor(row[11]);
-        student.setStudentID(row[12]);
+        StudentBaseInfo stu = row_to_student(row);
+        mysql_free_result(res);
+        return stu;
     }
+    mysql_free_result(res);
+    return std::nullopt;
+}
 
-    mysql_free_result(result);
-    return student;
+// 查全部
+std::vector<StudentBaseInfo> StudentDao::selectAllStudents() {
+    std::vector<StudentBaseInfo> vec;
+    auto conn_client = MySQLConnectionManager::instance().getConnection("boostpro1", "127.0.0.1", "root", "root", 3306);
+    if (!conn_client) return vec;
+    MYSQL* conn = conn_client->get();
+
+    std::string sql = "SELECT * FROM students";
+    int ret = mysql_query(conn, sql.c_str());
+    if (ret != 0) {
+        std::cerr << "Select Error: " << mysql_error(conn) << std::endl;
+        return vec;
+    }
+    MYSQL_RES* res = mysql_store_result(conn);
+    if (!res) return vec;
+    MYSQL_ROW row;
+    while ((row = mysql_fetch_row(res))) {
+        vec.push_back(row_to_student(row));
+    }
+    mysql_free_result(res);
+    return vec;
+}
+
+// 按学号查
+std::optional<StudentBaseInfo> StudentDao::selectStudentByStudentId(const std::string& student_id) {
+    auto conn_client = MySQLConnectionManager::instance().getConnection("boostpro1", "127.0.0.1", "root", "root", 3306);
+    if (!conn_client) return std::nullopt;
+    MYSQL* conn = conn_client->get();
+
+    std::string sql = "SELECT * FROM students WHERE student_id='" + student_id + "'";
+    int ret = mysql_query(conn, sql.c_str());
+    if (ret != 0) {
+        std::cerr << "Select Error: " << mysql_error(conn) << std::endl;
+        return std::nullopt;
+    }
+    MYSQL_RES* res = mysql_store_result(conn);
+    if (!res) return std::nullopt;
+    MYSQL_ROW row = mysql_fetch_row(res);
+    if (row) {
+        StudentBaseInfo stu = row_to_student(row);
+        mysql_free_result(res);
+        return stu;
+    }
+    mysql_free_result(res);
+    return std::nullopt;
+}
+
+// 按手机号查
+std::optional<StudentBaseInfo> StudentDao::selectStudentByPhone(const std::string& phone_number) {
+    auto conn_client = MySQLConnectionManager::instance().getConnection("boostpro1", "127.0.0.1", "root", "root", 3306);
+    if (!conn_client) return std::nullopt;
+    MYSQL* conn = conn_client->get();
+
+    std::string sql = "SELECT * FROM students WHERE phone_number='" + phone_number + "'";
+    int ret = mysql_query(conn, sql.c_str());
+    if (ret != 0) {
+        std::cerr << "Select Error: " << mysql_error(conn) << std::endl;
+        return std::nullopt;
+    }
+    MYSQL_RES* res = mysql_store_result(conn);
+    if (!res) return std::nullopt;
+    MYSQL_ROW row = mysql_fetch_row(res);
+    if (row) {
+        StudentBaseInfo stu = row_to_student(row);
+        mysql_free_result(res);
+        return stu;
+    }
+    mysql_free_result(res);
+    return std::nullopt;
 }
 
 } // namespace chenglei

@@ -1,5 +1,14 @@
+/*
+ * @Author: Onebooming 1026781822@qq.com
+ * @Date: 2025-07-07 22:41:48
+ * @LastEditors: Onebooming 1026781822@qq.com
+ * @LastEditTime: 2025-07-21 21:51:57
+ * @FilePath: /BoostPro1/master/server/src/urldispatch/student_url_handler.cpp
+ * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
+ */
 #include "student_url_handler.hpp"
 #include <sstream>
+#include <iostream>
 namespace chenglei {
 
 int StudentUrlHandler::url_handler(http::request<http::string_body>& request,
@@ -27,12 +36,15 @@ int StudentUrlHandler::url_handler(http::request<http::string_body>& request,
                 }
             }
         }
+        std::cout << "get method.\n";
         result_json = controller.query_student(id, name);
     } else if (request.method() == http::verb::post){
         result_json = controller.add_student(request.body());
+        std::cout << "post method.\n";
     } else {
         response.result(http::status::bad_request);
         response.body() = "{\"error\":\"unsupported method\"}";
+        std::cout << "other method.\n";
         return 0;
     }
 

@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+    <meta charset="UTF-8">
+    <title>学生管理</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 24px;
+        }
+
+        h1 {
+            color: #3b5998;
+        }
+
+        .form-section,
+        .list-section {
+            margin-bottom: 32px;
+        }
+
+        .form-section label {
+            display: inline-block;
+            width: 120px;
+        }
+
+        .form-section input {
+            margin-bottom: 8px;
+            width: 220px;
+        }
+
+        .form-section select {
+            margin-bottom: 8px;
+            width: 226px;
+        }
+
+        .form-section button {
+            margin-top: 12px;
+        }
+
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            margin-top: 12px;
+        }
+
+        th,
+        td {
+            border: 1px solid #ddd;
+            padding: 6px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #f4f4f4;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>学生管理</h1>
+
+    <!-- 功能1：添加学生信息 -->
+    <div class="form-section">
+        <h2>添加学生</h2>
+        <form id="studentForm">
+            <label for="name">姓名：</label>
+            <input type="text" id="name" name="name" required><br>
+
+            <label for="birth_date">生日：</label>
+            <input type="date" id="birth_date" name="birth_date" required><br>
+
+            <label for="gender">性别：</label>
+            <select id="gender" name="gender" required>
+                <option value="male">男</option>
+                <option value="female">女</option>
+                <option value="other">其他</option>
+            </select><br>
+
+            <label for="hobby">爱好：</label>
+            <input type="text" id="hobby" name="hobby"><br>
+
+            <label for="phone_number">手机号：</label>
+            <input type="text" id="phone_number" name="phone_number"><br>
+
+            <label for="father_name">爸爸名字：</label>
+            <input type="text" id="father_name" name="father_name"><br>
+
+            <label for="mother_name">妈妈名字：</label>
+            <input type="text" id="mother_name" name="mother_name"><br>
+
+            <label for="grade">年级：</label>
+            <input type="text" id="grade" name="grade"><br>
+
+            <label for="class_name">班级：</label>
+            <input type="text" id="class_name" name="class_name"><br>
+
+            <label for="major">专业：</label>
+            <input type="text" id="major" name="major"><br>
+
+            <label for="student_id">学生号：</label>
+            <input type="text" id="student_id" name="student_id" required><br>
+
+            <button type="submit">添加学生</button>
+        </form>
+        <div id="addMsg"></div>
+    </div>
+
+    <!-- 功能2：学生列表 -->
+    <div class="list-section">
+        <h2>学生列表</h2>
+        <button onclick="fetchStudents()">刷新列表</button>
+        <table id="studentTable">
+            <thead>
+                <tr>
+                    <th>姓名</th>
+                    <th>生日</th>
+                    <th>性别</th>
+                    <th>爱好</th>
+                    <th>手机号</th>
+                    <th>爸爸名字</th>
+                    <th>妈妈名字</th>
+                    <th>年级</th>
+                    <th>班级</th>
+                    <th>专业</th>
+                    <th>学生号</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- 数据填充 -->
+            </tbody>
+        </table>
+    </div>
+
+    <script>
+        // 表单提交：添加学生
+        document.getElementById('studentForm').onsubmit = function (e) {
+            e.preventDefault();
+            const student = {
+                name: document.getElementById('name').value,
+                birth_date: document.getElementById('birth_date').value,
+                gender: document.getElementById('gender').value,
+                hobby: document.getElementById('hobby').value,
+                phone_number: document.getElementById('phone_number').value,
+                father_name: document.getElementById('father_name').value,
+                mother_name: document.getElementById('mother_name').value,
+                grade: document.getElementById('grade').value,
+                class_name: document.getElementById('class_name').value,
+                major: document.getElementById('major').value,
+                student_id: document.getElementById('student_id').value,
+            };
+            fetch('http://127.0.0.1:20080/first_stage/student', {
+                method: 'post',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(student)
+            })
+                .then(response => response.ok ? "添加成功" : "添加失败")
+                .then(msg => {
+                    document.getElementById('addMsg').innerText = msg;
+                    fetchStudents();
+                })
+                .catch(err => {
+                    document.getElementById('addMsg').innerText = "网络错误";
+                });
+        };
+
+        // 获取学生列表
+        function fetchStudents() {
+            fetch('http://127.0.0.1:20080/first_stage/student', {
+                method: 'get',
+                headers: { 'Accept': 'application/json' }
+            })
+                .then(response => response.json())
+                .then(data => {
+                    const tbody = document.getElementById('studentTable').getElementsByTagName('tbody')[0];
+                    tbody.innerHTML = '';
+                    data.forEach(s => {
+                        const row = tbody.insertRow();
+                        row.insertCell().innerText = s.name || '';
+                        row.insertCell().innerText = s.birth_date || '';
+                        row.insertCell().innerText = s.gender || '';
+                        row.insertCell().innerText = s.hobby || '';
+                        row.insertCell().innerText = s.phone_number || '';
+                        row.insertCell().innerText = s.father_name || '';
+                        row.insertCell().innerText = s.mother_name || '';
+                        row.insertCell().innerText = s.grade || '';
+                        row.insertCell().innerText = s.class_name || '';
+                        row.insertCell().innerText = s.major || '';
+                        row.insertCell().innerText = s.student_id || '';
+                    });
+                })
+                .catch(() => {
+                    const tbody = document.getElementById('studentTable').getElementsByTagName('tbody')[0];
+                    tbody.innerHTML = '<tr><td colspan="11">加载失败</td></tr>';
+                });
+        }
+
+        // 页面加载自动刷新列表
+        window.onload = fetchStudents;
+    </script>
+</body>
+
+</html>
