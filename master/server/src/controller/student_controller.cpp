@@ -2,11 +2,12 @@
  * @Author: Onebooming 1026781822@qq.com
  * @Date: 2025-07-07 22:34:05
  * @LastEditors: Onebooming 1026781822@qq.com
- * @LastEditTime: 2025-07-21 23:00:58
+ * @LastEditTime: 2025-07-22 22:41:27
  * @FilePath: /BoostPro1/master/server/src/controller/student_controller.cpp
  * @Description: student controller 类的文件
  */
 
+#include <iostream>
 #include "student_controller.hpp"
 #include "../dao/student_dao.hpp"
 #include "../../../public/json.hpp"
@@ -100,4 +101,52 @@ std::string StudentController::add_student(const std::string& body) {
     return R"({"result":"student added"})";
 }
 
+int StudentController::controller_process(http::request<http::string_body> &request, http::response<http::string_body> &response)
+{
+    std::string result_json;
+
+    if (request.method() == http::verb::get) {
+        // 解析参数
+        auto target = request.target().to_string();
+        auto pos = target.find('?');
+        std::string id, name;
+        if (pos != std::string::npos) {
+            std::string query = target.substr(pos + 1);
+            std::istringstream iss(query);
+            std::string kv;
+            while (std::getline(iss, kv, '&')) {
+                auto eq = kv.find('=');
+                if (eq != std::string::npos) {
+                    auto key = kv.substr(0, eq);
+                    auto value = kv.substr(eq + 1);
+                    if (key == "id") id = value;
+                    if (key == "name") name = value;
+                }
+            }
+        }
+        std::cout << "get method.\n";
+        result_json = query_student(id, name);
+    } else if (request.method() == http::verb::post){
+        result_json = add_student(request.body());
+        std::cout << "post method.\n";
+    } else {
+        response.result(http::status::bad_request);
+        response.body() = "{\"error\":\"unsupported method\"}";
+        std::cout << "other method.\n";
+        return 0;
+    }
+
+    std::cout << "Received request: " << request.body() << std::endl;
+    std::cout << "Sending response: " << result_json << std::endl;
+
+    response.version(request.version());
+    response.result(http::status::ok);
+    response.set(http::field::server, "Boost.Beast");
+    response.set(http::field::content_type, "application/json");
+    response.body() = result_json;
+    response.content_length(response.body().size());
+    response.keep_alive(request.keep_alive());
+
+    return 0;
+}
 }

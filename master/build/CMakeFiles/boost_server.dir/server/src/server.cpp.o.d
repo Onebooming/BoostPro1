@@ -1484,12 +1484,10 @@ CMakeFiles/boost_server.dir/server/src/server.cpp.o: \
  /usr/include/c++/10/bits/fs_dir.h /usr/include/c++/10/bits/fs_ops.h \
  /usr/include/c++/10/numeric /usr/include/c++/10/bits/stl_numeric.h \
  /usr/include/c++/10/pstl/glue_numeric_defs.h /usr/include/c++/10/any \
- /home/parallels/chenglei_work/2025/BoostPro1/master/server/src/urldispatch/url_router.hpp \
- /home/parallels/chenglei_work/2025/BoostPro1/master/server/src/urldispatch/baseurl_handler.hpp \
- /home/parallels/chenglei_work/2025/BoostPro1/master/server/src/urldispatch/firststage_html_url_handler.hpp \
- /home/parallels/chenglei_work/2025/BoostPro1/master/server/src/urldispatch/firststage_json_url_handler.hpp \
- /home/parallels/chenglei_work/2025/BoostPro1/master/server/src/urldispatch/student_url_handler.hpp \
- /home/parallels/chenglei_work/2025/BoostPro1/master/server/src/urldispatch/../controller/student_controller.hpp \
+ /home/parallels/chenglei_work/2025/BoostPro1/master/server/src/url_router/url_router.hpp \
+ /home/parallels/chenglei_work/2025/BoostPro1/master/server/src/url_router/baseurl_handler.hpp \
+ /home/parallels/chenglei_work/2025/BoostPro1/master/server/src/url_router/static_url_handler.hpp \
+ /home/parallels/chenglei_work/2025/BoostPro1/master/server/src/url_router/api_url_handler.hpp \
  /home/parallels/chenglei_work/2025/BoostPro1/master/server/src/database/mysql_pro.hpp \
  /usr/include/mysql/mysql.h \
  /usr/lib/gcc/x86_64-linux-gnu/10/include/stdbool.h \

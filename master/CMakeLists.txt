@@ -26,28 +26,21 @@ include_directories(${MYSQL_INCLUDE_DIR})
 # 可选：设置头文件搜索路径（根据实际项目结构调整）
 include_directories(
     ${PROJECT_SOURCE_DIR}/server/src
+    ${PROJECT_SOURCE_DIR}/server/src/entity
     ${PROJECT_SOURCE_DIR}/server/src/controller
-    ${PROJECT_SOURCE_DIR}/server/src/router
-    ${PROJECT_SOURCE_DIR}/server/src/urldispatch
-    ${PROJECT_SOURCE_DIR}/server/src/database
     ${PROJECT_SOURCE_DIR}/server/src/dao
-    ${PROJECT_SOURCE_DIR}/server/src/util
+    ${PROJECT_SOURCE_DIR}/server/src/database
+    ${PROJECT_SOURCE_DIR}/server/src/utils
+    ${PROJECT_SOURCE_DIR}/server/src/url_router
+    ${PROJECT_SOURCE_DIR}/server/src/api_router
     ${PROJECT_SOURCE_DIR}/client/src
+    ${PROJECT_SOURCE_DIR}/public
 )
 
 # Server源文件列表（便于维护，可扩展）
-set(SERVER_SOURCES
-    server/src/controller/compute_controller.cpp
-    server/src/controller/student_controller.cpp
-    server/src/dao/student_dao.cpp
-    server/src/controller/student_controller.cpp
-    server/src/router/method_router.cpp
-    server/src/urldispatch/url_router.cpp
-    server/src/urldispatch/firststage_json_url_handler.cpp
-    server/src/urldispatch/firststage_html_url_handler.cpp
-    server/src/urldispatch/student_url_handler.cpp
-    server/src/database/mysql_pro.cpp
-    server/src/server.cpp
+# 自动收集 server/src 下所有 .cpp 文件（递归）
+file(GLOB_RECURSE SERVER_SOURCES
+    ${PROJECT_SOURCE_DIR}/server/src/*.cpp
 )
 
 add_executable(boost_server ${SERVER_SOURCES})

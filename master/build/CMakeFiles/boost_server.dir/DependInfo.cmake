@@ -8,15 +8,14 @@ set(CMAKE_DEPENDS_LANGUAGES
 
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
-  "/home/parallels/chenglei_work/2025/BoostPro1/master/server/src/controller/compute_controller.cpp" "CMakeFiles/boost_server.dir/server/src/controller/compute_controller.cpp.o" "gcc" "CMakeFiles/boost_server.dir/server/src/controller/compute_controller.cpp.o.d"
+  "/home/parallels/chenglei_work/2025/BoostPro1/master/server/src/api_router/api_router.cpp" "CMakeFiles/boost_server.dir/server/src/api_router/api_router.cpp.o" "gcc" "CMakeFiles/boost_server.dir/server/src/api_router/api_router.cpp.o.d"
   "/home/parallels/chenglei_work/2025/BoostPro1/master/server/src/controller/student_controller.cpp" "CMakeFiles/boost_server.dir/server/src/controller/student_controller.cpp.o" "gcc" "CMakeFiles/boost_server.dir/server/src/controller/student_controller.cpp.o.d"
+  "/home/parallels/chenglei_work/2025/BoostPro1/master/server/src/dao/student_dao.cpp" "CMakeFiles/boost_server.dir/server/src/dao/student_dao.cpp.o" "gcc" "CMakeFiles/boost_server.dir/server/src/dao/student_dao.cpp.o.d"
   "/home/parallels/chenglei_work/2025/BoostPro1/master/server/src/database/mysql_pro.cpp" "CMakeFiles/boost_server.dir/server/src/database/mysql_pro.cpp.o" "gcc" "CMakeFiles/boost_server.dir/server/src/database/mysql_pro.cpp.o.d"
-  "/home/parallels/chenglei_work/2025/BoostPro1/master/server/src/router/method_router.cpp" "CMakeFiles/boost_server.dir/server/src/router/method_router.cpp.o" "gcc" "CMakeFiles/boost_server.dir/server/src/router/method_router.cpp.o.d"
   "/home/parallels/chenglei_work/2025/BoostPro1/master/server/src/server.cpp" "CMakeFiles/boost_server.dir/server/src/server.cpp.o" "gcc" "CMakeFiles/boost_server.dir/server/src/server.cpp.o.d"
-  "/home/parallels/chenglei_work/2025/BoostPro1/master/server/src/urldispatch/firststage_html_url_handler.cpp" "CMakeFiles/boost_server.dir/server/src/urldispatch/firststage_html_url_handler.cpp.o" "gcc" "CMakeFiles/boost_server.dir/server/src/urldispatch/firststage_html_url_handler.cpp.o.d"
-  "/home/parallels/chenglei_work/2025/BoostPro1/master/server/src/urldispatch/firststage_json_url_handler.cpp" "CMakeFiles/boost_server.dir/server/src/urldispatch/firststage_json_url_handler.cpp.o" "gcc" "CMakeFiles/boost_server.dir/server/src/urldispatch/firststage_json_url_handler.cpp.o.d"
-  "/home/parallels/chenglei_work/2025/BoostPro1/master/server/src/urldispatch/student_url_handler.cpp" "CMakeFiles/boost_server.dir/server/src/urldispatch/student_url_handler.cpp.o" "gcc" "CMakeFiles/boost_server.dir/server/src/urldispatch/student_url_handler.cpp.o.d"
-  "/home/parallels/chenglei_work/2025/BoostPro1/master/server/src/urldispatch/url_router.cpp" "CMakeFiles/boost_server.dir/server/src/urldispatch/url_router.cpp.o" "gcc" "CMakeFiles/boost_server.dir/server/src/urldispatch/url_router.cpp.o.d"
+  "/home/parallels/chenglei_work/2025/BoostPro1/master/server/src/url_router/api_url_handler.cpp" "CMakeFiles/boost_server.dir/server/src/url_router/api_url_handler.cpp.o" "gcc" "CMakeFiles/boost_server.dir/server/src/url_router/api_url_handler.cpp.o.d"
+  "/home/parallels/chenglei_work/2025/BoostPro1/master/server/src/url_router/static_url_handler.cpp" "CMakeFiles/boost_server.dir/server/src/url_router/static_url_handler.cpp.o" "gcc" "CMakeFiles/boost_server.dir/server/src/url_router/static_url_handler.cpp.o.d"
+  "/home/parallels/chenglei_work/2025/BoostPro1/master/server/src/url_router/url_router.cpp" "CMakeFiles/boost_server.dir/server/src/url_router/url_router.cpp.o" "gcc" "CMakeFiles/boost_server.dir/server/src/url_router/url_router.cpp.o.d"
   )
 
 # Targets to which this target links which contain Fortran sources.

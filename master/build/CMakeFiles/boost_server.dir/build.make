@@ -72,19 +72,19 @@ include CMakeFiles/boost_server.dir/flags.make
 CMakeFiles/boost_server.dir/codegen:
 .PHONY : CMakeFiles/boost_server.dir/codegen
 
-CMakeFiles/boost_server.dir/server/src/controller/compute_controller.cpp.o: CMakeFiles/boost_server.dir/flags.make
-CMakeFiles/boost_server.dir/server/src/controller/compute_controller.cpp.o: /home/parallels/chenglei_work/2025/BoostPro1/master/server/src/controller/compute_controller.cpp
-CMakeFiles/boost_server.dir/server/src/controller/compute_controller.cpp.o: CMakeFiles/boost_server.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/parallels/chenglei_work/2025/BoostPro1/master/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/boost_server.dir/server/src/controller/compute_controller.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/boost_server.dir/server/src/controller/compute_controller.cpp.o -MF CMakeFiles/boost_server.dir/server/src/controller/compute_controller.cpp.o.d -o CMakeFiles/boost_server.dir/server/src/controller/compute_controller.cpp.o -c /home/parallels/chenglei_work/2025/BoostPro1/master/server/src/controller/compute_controller.cpp
+CMakeFiles/boost_server.dir/server/src/api_router/api_router.cpp.o: CMakeFiles/boost_server.dir/flags.make
+CMakeFiles/boost_server.dir/server/src/api_router/api_router.cpp.o: /home/parallels/chenglei_work/2025/BoostPro1/master/server/src/api_router/api_router.cpp
+CMakeFiles/boost_server.dir/server/src/api_router/api_router.cpp.o: CMakeFiles/boost_server.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/parallels/chenglei_work/2025/BoostPro1/master/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/boost_server.dir/server/src/api_router/api_router.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/boost_server.dir/server/src/api_router/api_router.cpp.o -MF CMakeFiles/boost_server.dir/server/src/api_router/api_router.cpp.o.d -o CMakeFiles/boost_server.dir/server/src/api_router/api_router.cpp.o -c /home/parallels/chenglei_work/2025/BoostPro1/master/server/src/api_router/api_router.cpp
 
-CMakeFiles/boost_server.dir/server/src/controller/compute_controller.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/boost_server.dir/server/src/controller/compute_controller.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/parallels/chenglei_work/2025/BoostPro1/master/server/src/controller/compute_controller.cpp > CMakeFiles/boost_server.dir/server/src/controller/compute_controller.cpp.i
+CMakeFiles/boost_server.dir/server/src/api_router/api_router.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/boost_server.dir/server/src/api_router/api_router.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/parallels/chenglei_work/2025/BoostPro1/master/server/src/api_router/api_router.cpp > CMakeFiles/boost_server.dir/server/src/api_router/api_router.cpp.i
 
-CMakeFiles/boost_server.dir/server/src/controller/compute_controller.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/boost_server.dir/server/src/controller/compute_controller.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/parallels/chenglei_work/2025/BoostPro1/master/server/src/controller/compute_controller.cpp -o CMakeFiles/boost_server.dir/server/src/controller/compute_controller.cpp.s
+CMakeFiles/boost_server.dir/server/src/api_router/api_router.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/boost_server.dir/server/src/api_router/api_router.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/parallels/chenglei_work/2025/BoostPro1/master/server/src/api_router/api_router.cpp -o CMakeFiles/boost_server.dir/server/src/api_router/api_router.cpp.s
 
 CMakeFiles/boost_server.dir/server/src/controller/student_controller.cpp.o: CMakeFiles/boost_server.dir/flags.make
 CMakeFiles/boost_server.dir/server/src/controller/student_controller.cpp.o: /home/parallels/chenglei_work/2025/BoostPro1/master/server/src/controller/student_controller.cpp
@@ -100,80 +100,24 @@ CMakeFiles/boost_server.dir/server/src/controller/student_controller.cpp.s: cmak
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/boost_server.dir/server/src/controller/student_controller.cpp.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/parallels/chenglei_work/2025/BoostPro1/master/server/src/controller/student_controller.cpp -o CMakeFiles/boost_server.dir/server/src/controller/student_controller.cpp.s
 
-CMakeFiles/boost_server.dir/server/src/router/method_router.cpp.o: CMakeFiles/boost_server.dir/flags.make
-CMakeFiles/boost_server.dir/server/src/router/method_router.cpp.o: /home/parallels/chenglei_work/2025/BoostPro1/master/server/src/router/method_router.cpp
-CMakeFiles/boost_server.dir/server/src/router/method_router.cpp.o: CMakeFiles/boost_server.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/parallels/chenglei_work/2025/BoostPro1/master/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/boost_server.dir/server/src/router/method_router.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/boost_server.dir/server/src/router/method_router.cpp.o -MF CMakeFiles/boost_server.dir/server/src/router/method_router.cpp.o.d -o CMakeFiles/boost_server.dir/server/src/router/method_router.cpp.o -c /home/parallels/chenglei_work/2025/BoostPro1/master/server/src/router/method_router.cpp
+CMakeFiles/boost_server.dir/server/src/dao/student_dao.cpp.o: CMakeFiles/boost_server.dir/flags.make
+CMakeFiles/boost_server.dir/server/src/dao/student_dao.cpp.o: /home/parallels/chenglei_work/2025/BoostPro1/master/server/src/dao/student_dao.cpp
+CMakeFiles/boost_server.dir/server/src/dao/student_dao.cpp.o: CMakeFiles/boost_server.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/parallels/chenglei_work/2025/BoostPro1/master/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/boost_server.dir/server/src/dao/student_dao.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/boost_server.dir/server/src/dao/student_dao.cpp.o -MF CMakeFiles/boost_server.dir/server/src/dao/student_dao.cpp.o.d -o CMakeFiles/boost_server.dir/server/src/dao/student_dao.cpp.o -c /home/parallels/chenglei_work/2025/BoostPro1/master/server/src/dao/student_dao.cpp
 
-CMakeFiles/boost_server.dir/server/src/router/method_router.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/boost_server.dir/server/src/router/method_router.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/parallels/chenglei_work/2025/BoostPro1/master/server/src/router/method_router.cpp > CMakeFiles/boost_server.dir/server/src/router/method_router.cpp.i
+CMakeFiles/boost_server.dir/server/src/dao/student_dao.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/boost_server.dir/server/src/dao/student_dao.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/parallels/chenglei_work/2025/BoostPro1/master/server/src/dao/student_dao.cpp > CMakeFiles/boost_server.dir/server/src/dao/student_dao.cpp.i
 
-CMakeFiles/boost_server.dir/server/src/router/method_router.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/boost_server.dir/server/src/router/method_router.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/parallels/chenglei_work/2025/BoostPro1/master/server/src/router/method_router.cpp -o CMakeFiles/boost_server.dir/server/src/router/method_router.cpp.s
-
-CMakeFiles/boost_server.dir/server/src/urldispatch/url_router.cpp.o: CMakeFiles/boost_server.dir/flags.make
-CMakeFiles/boost_server.dir/server/src/urldispatch/url_router.cpp.o: /home/parallels/chenglei_work/2025/BoostPro1/master/server/src/urldispatch/url_router.cpp
-CMakeFiles/boost_server.dir/server/src/urldispatch/url_router.cpp.o: CMakeFiles/boost_server.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/parallels/chenglei_work/2025/BoostPro1/master/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/boost_server.dir/server/src/urldispatch/url_router.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/boost_server.dir/server/src/urldispatch/url_router.cpp.o -MF CMakeFiles/boost_server.dir/server/src/urldispatch/url_router.cpp.o.d -o CMakeFiles/boost_server.dir/server/src/urldispatch/url_router.cpp.o -c /home/parallels/chenglei_work/2025/BoostPro1/master/server/src/urldispatch/url_router.cpp
-
-CMakeFiles/boost_server.dir/server/src/urldispatch/url_router.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/boost_server.dir/server/src/urldispatch/url_router.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/parallels/chenglei_work/2025/BoostPro1/master/server/src/urldispatch/url_router.cpp > CMakeFiles/boost_server.dir/server/src/urldispatch/url_router.cpp.i
-
-CMakeFiles/boost_server.dir/server/src/urldispatch/url_router.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/boost_server.dir/server/src/urldispatch/url_router.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/parallels/chenglei_work/2025/BoostPro1/master/server/src/urldispatch/url_router.cpp -o CMakeFiles/boost_server.dir/server/src/urldispatch/url_router.cpp.s
-
-CMakeFiles/boost_server.dir/server/src/urldispatch/firststage_json_url_handler.cpp.o: CMakeFiles/boost_server.dir/flags.make
-CMakeFiles/boost_server.dir/server/src/urldispatch/firststage_json_url_handler.cpp.o: /home/parallels/chenglei_work/2025/BoostPro1/master/server/src/urldispatch/firststage_json_url_handler.cpp
-CMakeFiles/boost_server.dir/server/src/urldispatch/firststage_json_url_handler.cpp.o: CMakeFiles/boost_server.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/parallels/chenglei_work/2025/BoostPro1/master/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/boost_server.dir/server/src/urldispatch/firststage_json_url_handler.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/boost_server.dir/server/src/urldispatch/firststage_json_url_handler.cpp.o -MF CMakeFiles/boost_server.dir/server/src/urldispatch/firststage_json_url_handler.cpp.o.d -o CMakeFiles/boost_server.dir/server/src/urldispatch/firststage_json_url_handler.cpp.o -c /home/parallels/chenglei_work/2025/BoostPro1/master/server/src/urldispatch/firststage_json_url_handler.cpp
-
-CMakeFiles/boost_server.dir/server/src/urldispatch/firststage_json_url_handler.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/boost_server.dir/server/src/urldispatch/firststage_json_url_handler.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/parallels/chenglei_work/2025/BoostPro1/master/server/src/urldispatch/firststage_json_url_handler.cpp > CMakeFiles/boost_server.dir/server/src/urldispatch/firststage_json_url_handler.cpp.i
-
-CMakeFiles/boost_server.dir/server/src/urldispatch/firststage_json_url_handler.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/boost_server.dir/server/src/urldispatch/firststage_json_url_handler.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/parallels/chenglei_work/2025/BoostPro1/master/server/src/urldispatch/firststage_json_url_handler.cpp -o CMakeFiles/boost_server.dir/server/src/urldispatch/firststage_json_url_handler.cpp.s
-
-CMakeFiles/boost_server.dir/server/src/urldispatch/firststage_html_url_handler.cpp.o: CMakeFiles/boost_server.dir/flags.make
-CMakeFiles/boost_server.dir/server/src/urldispatch/firststage_html_url_handler.cpp.o: /home/parallels/chenglei_work/2025/BoostPro1/master/server/src/urldispatch/firststage_html_url_handler.cpp
-CMakeFiles/boost_server.dir/server/src/urldispatch/firststage_html_url_handler.cpp.o: CMakeFiles/boost_server.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/parallels/chenglei_work/2025/BoostPro1/master/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/boost_server.dir/server/src/urldispatch/firststage_html_url_handler.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/boost_server.dir/server/src/urldispatch/firststage_html_url_handler.cpp.o -MF CMakeFiles/boost_server.dir/server/src/urldispatch/firststage_html_url_handler.cpp.o.d -o CMakeFiles/boost_server.dir/server/src/urldispatch/firststage_html_url_handler.cpp.o -c /home/parallels/chenglei_work/2025/BoostPro1/master/server/src/urldispatch/firststage_html_url_handler.cpp
-
-CMakeFiles/boost_server.dir/server/src/urldispatch/firststage_html_url_handler.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/boost_server.dir/server/src/urldispatch/firststage_html_url_handler.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/parallels/chenglei_work/2025/BoostPro1/master/server/src/urldispatch/firststage_html_url_handler.cpp > CMakeFiles/boost_server.dir/server/src/urldispatch/firststage_html_url_handler.cpp.i
-
-CMakeFiles/boost_server.dir/server/src/urldispatch/firststage_html_url_handler.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/boost_server.dir/server/src/urldispatch/firststage_html_url_handler.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/parallels/chenglei_work/2025/BoostPro1/master/server/src/urldispatch/firststage_html_url_handler.cpp -o CMakeFiles/boost_server.dir/server/src/urldispatch/firststage_html_url_handler.cpp.s
-
-CMakeFiles/boost_server.dir/server/src/urldispatch/student_url_handler.cpp.o: CMakeFiles/boost_server.dir/flags.make
-CMakeFiles/boost_server.dir/server/src/urldispatch/student_url_handler.cpp.o: /home/parallels/chenglei_work/2025/BoostPro1/master/server/src/urldispatch/student_url_handler.cpp
-CMakeFiles/boost_server.dir/server/src/urldispatch/student_url_handler.cpp.o: CMakeFiles/boost_server.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/parallels/chenglei_work/2025/BoostPro1/master/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/boost_server.dir/server/src/urldispatch/student_url_handler.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/boost_server.dir/server/src/urldispatch/student_url_handler.cpp.o -MF CMakeFiles/boost_server.dir/server/src/urldispatch/student_url_handler.cpp.o.d -o CMakeFiles/boost_server.dir/server/src/urldispatch/student_url_handler.cpp.o -c /home/parallels/chenglei_work/2025/BoostPro1/master/server/src/urldispatch/student_url_handler.cpp
-
-CMakeFiles/boost_server.dir/server/src/urldispatch/student_url_handler.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/boost_server.dir/server/src/urldispatch/student_url_handler.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/parallels/chenglei_work/2025/BoostPro1/master/server/src/urldispatch/student_url_handler.cpp > CMakeFiles/boost_server.dir/server/src/urldispatch/student_url_handler.cpp.i
-
-CMakeFiles/boost_server.dir/server/src/urldispatch/student_url_handler.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/boost_server.dir/server/src/urldispatch/student_url_handler.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/parallels/chenglei_work/2025/BoostPro1/master/server/src/urldispatch/student_url_handler.cpp -o CMakeFiles/boost_server.dir/server/src/urldispatch/student_url_handler.cpp.s
+CMakeFiles/boost_server.dir/server/src/dao/student_dao.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/boost_server.dir/server/src/dao/student_dao.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/parallels/chenglei_work/2025/BoostPro1/master/server/src/dao/student_dao.cpp -o CMakeFiles/boost_server.dir/server/src/dao/student_dao.cpp.s
 
 CMakeFiles/boost_server.dir/server/src/database/mysql_pro.cpp.o: CMakeFiles/boost_server.dir/flags.make
 CMakeFiles/boost_server.dir/server/src/database/mysql_pro.cpp.o: /home/parallels/chenglei_work/2025/BoostPro1/master/server/src/database/mysql_pro.cpp
 CMakeFiles/boost_server.dir/server/src/database/mysql_pro.cpp.o: CMakeFiles/boost_server.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/parallels/chenglei_work/2025/BoostPro1/master/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/boost_server.dir/server/src/database/mysql_pro.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/parallels/chenglei_work/2025/BoostPro1/master/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/boost_server.dir/server/src/database/mysql_pro.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/boost_server.dir/server/src/database/mysql_pro.cpp.o -MF CMakeFiles/boost_server.dir/server/src/database/mysql_pro.cpp.o.d -o CMakeFiles/boost_server.dir/server/src/database/mysql_pro.cpp.o -c /home/parallels/chenglei_work/2025/BoostPro1/master/server/src/database/mysql_pro.cpp
 
 CMakeFiles/boost_server.dir/server/src/database/mysql_pro.cpp.i: cmake_force
@@ -187,7 +131,7 @@ CMakeFiles/boost_server.dir/server/src/database/mysql_pro.cpp.s: cmake_force
 CMakeFiles/boost_server.dir/server/src/server.cpp.o: CMakeFiles/boost_server.dir/flags.make
 CMakeFiles/boost_server.dir/server/src/server.cpp.o: /home/parallels/chenglei_work/2025/BoostPro1/master/server/src/server.cpp
 CMakeFiles/boost_server.dir/server/src/server.cpp.o: CMakeFiles/boost_server.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/parallels/chenglei_work/2025/BoostPro1/master/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/boost_server.dir/server/src/server.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/parallels/chenglei_work/2025/BoostPro1/master/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/boost_server.dir/server/src/server.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/boost_server.dir/server/src/server.cpp.o -MF CMakeFiles/boost_server.dir/server/src/server.cpp.o.d -o CMakeFiles/boost_server.dir/server/src/server.cpp.o -c /home/parallels/chenglei_work/2025/BoostPro1/master/server/src/server.cpp
 
 CMakeFiles/boost_server.dir/server/src/server.cpp.i: cmake_force
@@ -198,35 +142,75 @@ CMakeFiles/boost_server.dir/server/src/server.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/boost_server.dir/server/src/server.cpp.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/parallels/chenglei_work/2025/BoostPro1/master/server/src/server.cpp -o CMakeFiles/boost_server.dir/server/src/server.cpp.s
 
+CMakeFiles/boost_server.dir/server/src/url_router/api_url_handler.cpp.o: CMakeFiles/boost_server.dir/flags.make
+CMakeFiles/boost_server.dir/server/src/url_router/api_url_handler.cpp.o: /home/parallels/chenglei_work/2025/BoostPro1/master/server/src/url_router/api_url_handler.cpp
+CMakeFiles/boost_server.dir/server/src/url_router/api_url_handler.cpp.o: CMakeFiles/boost_server.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/parallels/chenglei_work/2025/BoostPro1/master/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/boost_server.dir/server/src/url_router/api_url_handler.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/boost_server.dir/server/src/url_router/api_url_handler.cpp.o -MF CMakeFiles/boost_server.dir/server/src/url_router/api_url_handler.cpp.o.d -o CMakeFiles/boost_server.dir/server/src/url_router/api_url_handler.cpp.o -c /home/parallels/chenglei_work/2025/BoostPro1/master/server/src/url_router/api_url_handler.cpp
+
+CMakeFiles/boost_server.dir/server/src/url_router/api_url_handler.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/boost_server.dir/server/src/url_router/api_url_handler.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/parallels/chenglei_work/2025/BoostPro1/master/server/src/url_router/api_url_handler.cpp > CMakeFiles/boost_server.dir/server/src/url_router/api_url_handler.cpp.i
+
+CMakeFiles/boost_server.dir/server/src/url_router/api_url_handler.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/boost_server.dir/server/src/url_router/api_url_handler.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/parallels/chenglei_work/2025/BoostPro1/master/server/src/url_router/api_url_handler.cpp -o CMakeFiles/boost_server.dir/server/src/url_router/api_url_handler.cpp.s
+
+CMakeFiles/boost_server.dir/server/src/url_router/static_url_handler.cpp.o: CMakeFiles/boost_server.dir/flags.make
+CMakeFiles/boost_server.dir/server/src/url_router/static_url_handler.cpp.o: /home/parallels/chenglei_work/2025/BoostPro1/master/server/src/url_router/static_url_handler.cpp
+CMakeFiles/boost_server.dir/server/src/url_router/static_url_handler.cpp.o: CMakeFiles/boost_server.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/parallels/chenglei_work/2025/BoostPro1/master/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/boost_server.dir/server/src/url_router/static_url_handler.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/boost_server.dir/server/src/url_router/static_url_handler.cpp.o -MF CMakeFiles/boost_server.dir/server/src/url_router/static_url_handler.cpp.o.d -o CMakeFiles/boost_server.dir/server/src/url_router/static_url_handler.cpp.o -c /home/parallels/chenglei_work/2025/BoostPro1/master/server/src/url_router/static_url_handler.cpp
+
+CMakeFiles/boost_server.dir/server/src/url_router/static_url_handler.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/boost_server.dir/server/src/url_router/static_url_handler.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/parallels/chenglei_work/2025/BoostPro1/master/server/src/url_router/static_url_handler.cpp > CMakeFiles/boost_server.dir/server/src/url_router/static_url_handler.cpp.i
+
+CMakeFiles/boost_server.dir/server/src/url_router/static_url_handler.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/boost_server.dir/server/src/url_router/static_url_handler.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/parallels/chenglei_work/2025/BoostPro1/master/server/src/url_router/static_url_handler.cpp -o CMakeFiles/boost_server.dir/server/src/url_router/static_url_handler.cpp.s
+
+CMakeFiles/boost_server.dir/server/src/url_router/url_router.cpp.o: CMakeFiles/boost_server.dir/flags.make
+CMakeFiles/boost_server.dir/server/src/url_router/url_router.cpp.o: /home/parallels/chenglei_work/2025/BoostPro1/master/server/src/url_router/url_router.cpp
+CMakeFiles/boost_server.dir/server/src/url_router/url_router.cpp.o: CMakeFiles/boost_server.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/parallels/chenglei_work/2025/BoostPro1/master/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/boost_server.dir/server/src/url_router/url_router.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/boost_server.dir/server/src/url_router/url_router.cpp.o -MF CMakeFiles/boost_server.dir/server/src/url_router/url_router.cpp.o.d -o CMakeFiles/boost_server.dir/server/src/url_router/url_router.cpp.o -c /home/parallels/chenglei_work/2025/BoostPro1/master/server/src/url_router/url_router.cpp
+
+CMakeFiles/boost_server.dir/server/src/url_router/url_router.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/boost_server.dir/server/src/url_router/url_router.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/parallels/chenglei_work/2025/BoostPro1/master/server/src/url_router/url_router.cpp > CMakeFiles/boost_server.dir/server/src/url_router/url_router.cpp.i
+
+CMakeFiles/boost_server.dir/server/src/url_router/url_router.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/boost_server.dir/server/src/url_router/url_router.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/parallels/chenglei_work/2025/BoostPro1/master/server/src/url_router/url_router.cpp -o CMakeFiles/boost_server.dir/server/src/url_router/url_router.cpp.s
+
 # Object files for target boost_server
 boost_server_OBJECTS = \
-"CMakeFiles/boost_server.dir/server/src/controller/compute_controller.cpp.o" \
+"CMakeFiles/boost_server.dir/server/src/api_router/api_router.cpp.o" \
 "CMakeFiles/boost_server.dir/server/src/controller/student_controller.cpp.o" \
-"CMakeFiles/boost_server.dir/server/src/router/method_router.cpp.o" \
-"CMakeFiles/boost_server.dir/server/src/urldispatch/url_router.cpp.o" \
-"CMakeFiles/boost_server.dir/server/src/urldispatch/firststage_json_url_handler.cpp.o" \
-"CMakeFiles/boost_server.dir/server/src/urldispatch/firststage_html_url_handler.cpp.o" \
-"CMakeFiles/boost_server.dir/server/src/urldispatch/student_url_handler.cpp.o" \
+"CMakeFiles/boost_server.dir/server/src/dao/student_dao.cpp.o" \
 "CMakeFiles/boost_server.dir/server/src/database/mysql_pro.cpp.o" \
-"CMakeFiles/boost_server.dir/server/src/server.cpp.o"
+"CMakeFiles/boost_server.dir/server/src/server.cpp.o" \
+"CMakeFiles/boost_server.dir/server/src/url_router/api_url_handler.cpp.o" \
+"CMakeFiles/boost_server.dir/server/src/url_router/static_url_handler.cpp.o" \
+"CMakeFiles/boost_server.dir/server/src/url_router/url_router.cpp.o"
 
 # External object files for target boost_server
 boost_server_EXTERNAL_OBJECTS =
 
-boost_server: CMakeFiles/boost_server.dir/server/src/controller/compute_controller.cpp.o
+boost_server: CMakeFiles/boost_server.dir/server/src/api_router/api_router.cpp.o
 boost_server: CMakeFiles/boost_server.dir/server/src/controller/student_controller.cpp.o
-boost_server: CMakeFiles/boost_server.dir/server/src/router/method_router.cpp.o
-boost_server: CMakeFiles/boost_server.dir/server/src/urldispatch/url_router.cpp.o
-boost_server: CMakeFiles/boost_server.dir/server/src/urldispatch/firststage_json_url_handler.cpp.o
-boost_server: CMakeFiles/boost_server.dir/server/src/urldispatch/firststage_html_url_handler.cpp.o
-boost_server: CMakeFiles/boost_server.dir/server/src/urldispatch/student_url_handler.cpp.o
+boost_server: CMakeFiles/boost_server.dir/server/src/dao/student_dao.cpp.o
 boost_server: CMakeFiles/boost_server.dir/server/src/database/mysql_pro.cpp.o
 boost_server: CMakeFiles/boost_server.dir/server/src/server.cpp.o
+boost_server: CMakeFiles/boost_server.dir/server/src/url_router/api_url_handler.cpp.o
+boost_server: CMakeFiles/boost_server.dir/server/src/url_router/static_url_handler.cpp.o
+boost_server: CMakeFiles/boost_server.dir/server/src/url_router/url_router.cpp.o
 boost_server: CMakeFiles/boost_server.dir/build.make
 boost_server: /usr/lib/x86_64-linux-gnu/libboost_system.so.1.71.0
 boost_server: /usr/lib/x86_64-linux-gnu/libmysqlclient.so
 boost_server: CMakeFiles/boost_server.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/parallels/chenglei_work/2025/BoostPro1/master/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Linking CXX executable boost_server"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/parallels/chenglei_work/2025/BoostPro1/master/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Linking CXX executable boost_server"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/boost_server.dir/link.txt --verbose=$(VERBOSE)
 	/usr/bin/cmake -E copy_directory /home/parallels/chenglei_work/2025/BoostPro1/master/server/src/static /home/parallels/chenglei_work/2025/BoostPro1/master/build/static
 

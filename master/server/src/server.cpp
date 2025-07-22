@@ -2,7 +2,7 @@
  * @Author: Onebooming 1026781822@qq.com
  * @Date: 2025-06-14 18:55:50
  * @LastEditors: Onebooming 1026781822@qq.com
- * @LastEditTime: 2025-07-07 22:49:39
+ * @LastEditTime: 2025-07-22 22:57:35
  * @FilePath: /BoostPro1/master/server/src/server.cpp
  * @Description: http服务器主程序
  */
@@ -23,10 +23,9 @@
 
 #include "../../public/basedata.hpp"
 #include "../../public/json.hpp"
-#include "urldispatch/url_router.hpp"
-#include "urldispatch/firststage_html_url_handler.hpp"
-#include "urldispatch/firststage_json_url_handler.hpp"
-#include "urldispatch/student_url_handler.hpp"
+#include "url_router/url_router.hpp"
+#include "url_router/static_url_handler.hpp"
+#include "url_router/api_url_handler.hpp"
 #include "database/mysql_pro.hpp"
 
 using tcp = boost::asio::ip::tcp; // from <boost/asio/ip/tcp.hpp>
@@ -109,15 +108,16 @@ public:
 };
 
 void init_url_router() {
+    chenglei::UrlRouter::instance().registerUrl("/api",
+                                std::make_unique<chenglei::ApiUrlHandler>());
     // 注册URL处理器
-    chenglei::UrlRouter::instance().registerUrl("/first_stage/htmls",
-        std::make_unique<chenglei::FirstStageHtmlHelloWordUH>());
-    chenglei::UrlRouter::instance().registerUrl("/first_stage/json_methos",
-        std::make_unique<chenglei::FirstStageJsonUrlHandler>());
+    chenglei::UrlRouter::instance().registerUrl("/static",
+                                std::make_unique<chenglei::StaticUrlHandler>());
+    chenglei::UrlRouter::instance().registerUrl("/",
+                                std::make_unique<chenglei::StaticUrlHandler>());
     
     // 可以继续注册其他URL处理器
-    chenglei::UrlRouter::instance().registerUrl("/first_stage/student",
-        std::make_unique<chenglei::StudentUrlHandler>());
+
 }
 
 int main() {

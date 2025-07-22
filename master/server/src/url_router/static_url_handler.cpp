@@ -2,11 +2,11 @@
  * @Author: Onebooming 1026781822@qq.com
  * @Date: 2025-06-16 21:40:21
  * @LastEditors: Onebooming 1026781822@qq.com
- * @LastEditTime: 2025-06-16 22:55:12
- * @FilePath: /BoostPro1/master/server/src/urldispatch/firststage_html_url_handler.cpp
- * @Description: /first_stage/htmls URL对应的处理类
+ * @LastEditTime: 2025-07-22 22:29:33
+ * @FilePath: /BoostPro1/master/server/src/urldispatch/static_url_handler.cpp
+ * @Description: /static URL对应的处理类
  */
-#include "firststage_html_url_handler.hpp"
+#include "static_url_handler.hpp"
 #include <boost/beast/core.hpp>
 #include <boost/beast/http.hpp>
 #include <boost/beast/version.hpp>
@@ -40,41 +40,12 @@ std::string read_file_to_string(const std::string& filepath) {
     return contents.str();
 }
 
-#if 0
-int FirstStageHtmlHelloWordUH::url_handler(http::request<http::string_body> &request, http::response<http::string_body> &response) {
-    std::string html_content = read_file_to_string("static/helloworld.html");
-    if (html_content.empty()) {
-        // 文件未找到，返回404
-        response.version(request.version());
-        response.result(http::status::not_found);
-        response.set(http::field::server, "Boost.Beast");
-        response.set(http::field::content_type, "text/plain");
-        response.body() = "404 Not Found";
-        response.content_length(response.body().size());
-        response.keep_alive(request.keep_alive());
-    } else {
-        // 返回文件内容
-        response.version(request.version());
-        response.result(http::status::ok);
-        response.set(http::field::server, "Boost.Beast");
-        response.set(http::field::content_type, "text/html; charset=utf-8");
-        response.body() = html_content;
-        response.content_length(response.body().size());
-        response.keep_alive(request.keep_alive());
-    }
-
-    return 0;
-}
-#endif
-
-
-
-int FirstStageHtmlHelloWordUH::url_handler(http::request<http::string_body> &request, http::response<http::string_body> &response) {
-    const std::string prefix = "/first_stage/htmls/";
+int StaticUrlHandler::url_handler(http::request<http::string_body> &request, http::response<http::string_body> &response) {
+    const std::string prefix = "/static/";
     std::string url = request.target().to_string();
 
     // 检查前缀
-    if (url.compare(0, prefix.size(), prefix) != 0) {
+    if ((url.compare(0, prefix.size(), prefix) != 0) && (url.compare("//") != 0)){
         response.version(request.version());
         response.result(http::status::not_found);
         response.set(http::field::server, "Boost.Beast");
@@ -86,9 +57,9 @@ int FirstStageHtmlHelloWordUH::url_handler(http::request<http::string_body> &req
     }
 
     // 获取html名
-    std::string html_name = url.substr(prefix.size());
-    if (html_name.empty()) html_name = "index"; // 允许 /first_stage/htmls/ 映射到 static/index.html
-    std::string file_path = "static/" + html_name + ".html";
+    std::string file_name = url.substr(prefix.size());
+    if (file_name.empty()) file_name = "index.html"; // 允许 /first_stage/htmls/ 映射到 static/index.html
+    std::string file_path = "static/" + file_name;
 
     std::string html_content = read_file_to_string(file_path);
     if (html_content.empty()) {

@@ -166,29 +166,29 @@ client/src/client.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/boost_client.dir/build.make CMakeFiles/boost_client.dir/client/src/client.cpp.s
 .PHONY : client/src/client.cpp.s
 
-server/src/controller/compute_controller.o: server/src/controller/compute_controller.cpp.o
-.PHONY : server/src/controller/compute_controller.o
+server/src/api_router/api_router.o: server/src/api_router/api_router.cpp.o
+.PHONY : server/src/api_router/api_router.o
 
 # target to build an object file
-server/src/controller/compute_controller.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/boost_server.dir/build.make CMakeFiles/boost_server.dir/server/src/controller/compute_controller.cpp.o
-.PHONY : server/src/controller/compute_controller.cpp.o
+server/src/api_router/api_router.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/boost_server.dir/build.make CMakeFiles/boost_server.dir/server/src/api_router/api_router.cpp.o
+.PHONY : server/src/api_router/api_router.cpp.o
 
-server/src/controller/compute_controller.i: server/src/controller/compute_controller.cpp.i
-.PHONY : server/src/controller/compute_controller.i
+server/src/api_router/api_router.i: server/src/api_router/api_router.cpp.i
+.PHONY : server/src/api_router/api_router.i
 
 # target to preprocess a source file
-server/src/controller/compute_controller.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/boost_server.dir/build.make CMakeFiles/boost_server.dir/server/src/controller/compute_controller.cpp.i
-.PHONY : server/src/controller/compute_controller.cpp.i
+server/src/api_router/api_router.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/boost_server.dir/build.make CMakeFiles/boost_server.dir/server/src/api_router/api_router.cpp.i
+.PHONY : server/src/api_router/api_router.cpp.i
 
-server/src/controller/compute_controller.s: server/src/controller/compute_controller.cpp.s
-.PHONY : server/src/controller/compute_controller.s
+server/src/api_router/api_router.s: server/src/api_router/api_router.cpp.s
+.PHONY : server/src/api_router/api_router.s
 
 # target to generate assembly for a file
-server/src/controller/compute_controller.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/boost_server.dir/build.make CMakeFiles/boost_server.dir/server/src/controller/compute_controller.cpp.s
-.PHONY : server/src/controller/compute_controller.cpp.s
+server/src/api_router/api_router.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/boost_server.dir/build.make CMakeFiles/boost_server.dir/server/src/api_router/api_router.cpp.s
+.PHONY : server/src/api_router/api_router.cpp.s
 
 server/src/controller/student_controller.o: server/src/controller/student_controller.cpp.o
 .PHONY : server/src/controller/student_controller.o
@@ -214,6 +214,30 @@ server/src/controller/student_controller.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/boost_server.dir/build.make CMakeFiles/boost_server.dir/server/src/controller/student_controller.cpp.s
 .PHONY : server/src/controller/student_controller.cpp.s
 
+server/src/dao/student_dao.o: server/src/dao/student_dao.cpp.o
+.PHONY : server/src/dao/student_dao.o
+
+# target to build an object file
+server/src/dao/student_dao.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/boost_server.dir/build.make CMakeFiles/boost_server.dir/server/src/dao/student_dao.cpp.o
+.PHONY : server/src/dao/student_dao.cpp.o
+
+server/src/dao/student_dao.i: server/src/dao/student_dao.cpp.i
+.PHONY : server/src/dao/student_dao.i
+
+# target to preprocess a source file
+server/src/dao/student_dao.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/boost_server.dir/build.make CMakeFiles/boost_server.dir/server/src/dao/student_dao.cpp.i
+.PHONY : server/src/dao/student_dao.cpp.i
+
+server/src/dao/student_dao.s: server/src/dao/student_dao.cpp.s
+.PHONY : server/src/dao/student_dao.s
+
+# target to generate assembly for a file
+server/src/dao/student_dao.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/boost_server.dir/build.make CMakeFiles/boost_server.dir/server/src/dao/student_dao.cpp.s
+.PHONY : server/src/dao/student_dao.cpp.s
+
 server/src/database/mysql_pro.o: server/src/database/mysql_pro.cpp.o
 .PHONY : server/src/database/mysql_pro.o
 
@@ -237,30 +261,6 @@ server/src/database/mysql_pro.s: server/src/database/mysql_pro.cpp.s
 server/src/database/mysql_pro.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/boost_server.dir/build.make CMakeFiles/boost_server.dir/server/src/database/mysql_pro.cpp.s
 .PHONY : server/src/database/mysql_pro.cpp.s
-
-server/src/router/method_router.o: server/src/router/method_router.cpp.o
-.PHONY : server/src/router/method_router.o
-
-# target to build an object file
-server/src/router/method_router.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/boost_server.dir/build.make CMakeFiles/boost_server.dir/server/src/router/method_router.cpp.o
-.PHONY : server/src/router/method_router.cpp.o
-
-server/src/router/method_router.i: server/src/router/method_router.cpp.i
-.PHONY : server/src/router/method_router.i
-
-# target to preprocess a source file
-server/src/router/method_router.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/boost_server.dir/build.make CMakeFiles/boost_server.dir/server/src/router/method_router.cpp.i
-.PHONY : server/src/router/method_router.cpp.i
-
-server/src/router/method_router.s: server/src/router/method_router.cpp.s
-.PHONY : server/src/router/method_router.s
-
-# target to generate assembly for a file
-server/src/router/method_router.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/boost_server.dir/build.make CMakeFiles/boost_server.dir/server/src/router/method_router.cpp.s
-.PHONY : server/src/router/method_router.cpp.s
 
 server/src/server.o: server/src/server.cpp.o
 .PHONY : server/src/server.o
@@ -286,101 +286,77 @@ server/src/server.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/boost_server.dir/build.make CMakeFiles/boost_server.dir/server/src/server.cpp.s
 .PHONY : server/src/server.cpp.s
 
-server/src/urldispatch/firststage_html_url_handler.o: server/src/urldispatch/firststage_html_url_handler.cpp.o
-.PHONY : server/src/urldispatch/firststage_html_url_handler.o
+server/src/url_router/api_url_handler.o: server/src/url_router/api_url_handler.cpp.o
+.PHONY : server/src/url_router/api_url_handler.o
 
 # target to build an object file
-server/src/urldispatch/firststage_html_url_handler.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/boost_server.dir/build.make CMakeFiles/boost_server.dir/server/src/urldispatch/firststage_html_url_handler.cpp.o
-.PHONY : server/src/urldispatch/firststage_html_url_handler.cpp.o
+server/src/url_router/api_url_handler.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/boost_server.dir/build.make CMakeFiles/boost_server.dir/server/src/url_router/api_url_handler.cpp.o
+.PHONY : server/src/url_router/api_url_handler.cpp.o
 
-server/src/urldispatch/firststage_html_url_handler.i: server/src/urldispatch/firststage_html_url_handler.cpp.i
-.PHONY : server/src/urldispatch/firststage_html_url_handler.i
+server/src/url_router/api_url_handler.i: server/src/url_router/api_url_handler.cpp.i
+.PHONY : server/src/url_router/api_url_handler.i
 
 # target to preprocess a source file
-server/src/urldispatch/firststage_html_url_handler.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/boost_server.dir/build.make CMakeFiles/boost_server.dir/server/src/urldispatch/firststage_html_url_handler.cpp.i
-.PHONY : server/src/urldispatch/firststage_html_url_handler.cpp.i
+server/src/url_router/api_url_handler.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/boost_server.dir/build.make CMakeFiles/boost_server.dir/server/src/url_router/api_url_handler.cpp.i
+.PHONY : server/src/url_router/api_url_handler.cpp.i
 
-server/src/urldispatch/firststage_html_url_handler.s: server/src/urldispatch/firststage_html_url_handler.cpp.s
-.PHONY : server/src/urldispatch/firststage_html_url_handler.s
+server/src/url_router/api_url_handler.s: server/src/url_router/api_url_handler.cpp.s
+.PHONY : server/src/url_router/api_url_handler.s
 
 # target to generate assembly for a file
-server/src/urldispatch/firststage_html_url_handler.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/boost_server.dir/build.make CMakeFiles/boost_server.dir/server/src/urldispatch/firststage_html_url_handler.cpp.s
-.PHONY : server/src/urldispatch/firststage_html_url_handler.cpp.s
+server/src/url_router/api_url_handler.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/boost_server.dir/build.make CMakeFiles/boost_server.dir/server/src/url_router/api_url_handler.cpp.s
+.PHONY : server/src/url_router/api_url_handler.cpp.s
 
-server/src/urldispatch/firststage_json_url_handler.o: server/src/urldispatch/firststage_json_url_handler.cpp.o
-.PHONY : server/src/urldispatch/firststage_json_url_handler.o
+server/src/url_router/static_url_handler.o: server/src/url_router/static_url_handler.cpp.o
+.PHONY : server/src/url_router/static_url_handler.o
 
 # target to build an object file
-server/src/urldispatch/firststage_json_url_handler.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/boost_server.dir/build.make CMakeFiles/boost_server.dir/server/src/urldispatch/firststage_json_url_handler.cpp.o
-.PHONY : server/src/urldispatch/firststage_json_url_handler.cpp.o
+server/src/url_router/static_url_handler.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/boost_server.dir/build.make CMakeFiles/boost_server.dir/server/src/url_router/static_url_handler.cpp.o
+.PHONY : server/src/url_router/static_url_handler.cpp.o
 
-server/src/urldispatch/firststage_json_url_handler.i: server/src/urldispatch/firststage_json_url_handler.cpp.i
-.PHONY : server/src/urldispatch/firststage_json_url_handler.i
+server/src/url_router/static_url_handler.i: server/src/url_router/static_url_handler.cpp.i
+.PHONY : server/src/url_router/static_url_handler.i
 
 # target to preprocess a source file
-server/src/urldispatch/firststage_json_url_handler.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/boost_server.dir/build.make CMakeFiles/boost_server.dir/server/src/urldispatch/firststage_json_url_handler.cpp.i
-.PHONY : server/src/urldispatch/firststage_json_url_handler.cpp.i
+server/src/url_router/static_url_handler.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/boost_server.dir/build.make CMakeFiles/boost_server.dir/server/src/url_router/static_url_handler.cpp.i
+.PHONY : server/src/url_router/static_url_handler.cpp.i
 
-server/src/urldispatch/firststage_json_url_handler.s: server/src/urldispatch/firststage_json_url_handler.cpp.s
-.PHONY : server/src/urldispatch/firststage_json_url_handler.s
+server/src/url_router/static_url_handler.s: server/src/url_router/static_url_handler.cpp.s
+.PHONY : server/src/url_router/static_url_handler.s
 
 # target to generate assembly for a file
-server/src/urldispatch/firststage_json_url_handler.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/boost_server.dir/build.make CMakeFiles/boost_server.dir/server/src/urldispatch/firststage_json_url_handler.cpp.s
-.PHONY : server/src/urldispatch/firststage_json_url_handler.cpp.s
+server/src/url_router/static_url_handler.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/boost_server.dir/build.make CMakeFiles/boost_server.dir/server/src/url_router/static_url_handler.cpp.s
+.PHONY : server/src/url_router/static_url_handler.cpp.s
 
-server/src/urldispatch/student_url_handler.o: server/src/urldispatch/student_url_handler.cpp.o
-.PHONY : server/src/urldispatch/student_url_handler.o
+server/src/url_router/url_router.o: server/src/url_router/url_router.cpp.o
+.PHONY : server/src/url_router/url_router.o
 
 # target to build an object file
-server/src/urldispatch/student_url_handler.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/boost_server.dir/build.make CMakeFiles/boost_server.dir/server/src/urldispatch/student_url_handler.cpp.o
-.PHONY : server/src/urldispatch/student_url_handler.cpp.o
+server/src/url_router/url_router.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/boost_server.dir/build.make CMakeFiles/boost_server.dir/server/src/url_router/url_router.cpp.o
+.PHONY : server/src/url_router/url_router.cpp.o
 
-server/src/urldispatch/student_url_handler.i: server/src/urldispatch/student_url_handler.cpp.i
-.PHONY : server/src/urldispatch/student_url_handler.i
-
-# target to preprocess a source file
-server/src/urldispatch/student_url_handler.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/boost_server.dir/build.make CMakeFiles/boost_server.dir/server/src/urldispatch/student_url_handler.cpp.i
-.PHONY : server/src/urldispatch/student_url_handler.cpp.i
-
-server/src/urldispatch/student_url_handler.s: server/src/urldispatch/student_url_handler.cpp.s
-.PHONY : server/src/urldispatch/student_url_handler.s
-
-# target to generate assembly for a file
-server/src/urldispatch/student_url_handler.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/boost_server.dir/build.make CMakeFiles/boost_server.dir/server/src/urldispatch/student_url_handler.cpp.s
-.PHONY : server/src/urldispatch/student_url_handler.cpp.s
-
-server/src/urldispatch/url_router.o: server/src/urldispatch/url_router.cpp.o
-.PHONY : server/src/urldispatch/url_router.o
-
-# target to build an object file
-server/src/urldispatch/url_router.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/boost_server.dir/build.make CMakeFiles/boost_server.dir/server/src/urldispatch/url_router.cpp.o
-.PHONY : server/src/urldispatch/url_router.cpp.o
-
-server/src/urldispatch/url_router.i: server/src/urldispatch/url_router.cpp.i
-.PHONY : server/src/urldispatch/url_router.i
+server/src/url_router/url_router.i: server/src/url_router/url_router.cpp.i
+.PHONY : server/src/url_router/url_router.i
 
 # target to preprocess a source file
-server/src/urldispatch/url_router.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/boost_server.dir/build.make CMakeFiles/boost_server.dir/server/src/urldispatch/url_router.cpp.i
-.PHONY : server/src/urldispatch/url_router.cpp.i
+server/src/url_router/url_router.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/boost_server.dir/build.make CMakeFiles/boost_server.dir/server/src/url_router/url_router.cpp.i
+.PHONY : server/src/url_router/url_router.cpp.i
 
-server/src/urldispatch/url_router.s: server/src/urldispatch/url_router.cpp.s
-.PHONY : server/src/urldispatch/url_router.s
+server/src/url_router/url_router.s: server/src/url_router/url_router.cpp.s
+.PHONY : server/src/url_router/url_router.s
 
 # target to generate assembly for a file
-server/src/urldispatch/url_router.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/boost_server.dir/build.make CMakeFiles/boost_server.dir/server/src/urldispatch/url_router.cpp.s
-.PHONY : server/src/urldispatch/url_router.cpp.s
+server/src/url_router/url_router.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/boost_server.dir/build.make CMakeFiles/boost_server.dir/server/src/url_router/url_router.cpp.s
+.PHONY : server/src/url_router/url_router.cpp.s
 
 # Help Target
 help:
@@ -395,33 +371,30 @@ help:
 	@echo "... client/src/client.o"
 	@echo "... client/src/client.i"
 	@echo "... client/src/client.s"
-	@echo "... server/src/controller/compute_controller.o"
-	@echo "... server/src/controller/compute_controller.i"
-	@echo "... server/src/controller/compute_controller.s"
+	@echo "... server/src/api_router/api_router.o"
+	@echo "... server/src/api_router/api_router.i"
+	@echo "... server/src/api_router/api_router.s"
 	@echo "... server/src/controller/student_controller.o"
 	@echo "... server/src/controller/student_controller.i"
 	@echo "... server/src/controller/student_controller.s"
+	@echo "... server/src/dao/student_dao.o"
+	@echo "... server/src/dao/student_dao.i"
+	@echo "... server/src/dao/student_dao.s"
 	@echo "... server/src/database/mysql_pro.o"
 	@echo "... server/src/database/mysql_pro.i"
 	@echo "... server/src/database/mysql_pro.s"
-	@echo "... server/src/router/method_router.o"
-	@echo "... server/src/router/method_router.i"
-	@echo "... server/src/router/method_router.s"
 	@echo "... server/src/server.o"
 	@echo "... server/src/server.i"
 	@echo "... server/src/server.s"
-	@echo "... server/src/urldispatch/firststage_html_url_handler.o"
-	@echo "... server/src/urldispatch/firststage_html_url_handler.i"
-	@echo "... server/src/urldispatch/firststage_html_url_handler.s"
-	@echo "... server/src/urldispatch/firststage_json_url_handler.o"
-	@echo "... server/src/urldispatch/firststage_json_url_handler.i"
-	@echo "... server/src/urldispatch/firststage_json_url_handler.s"
-	@echo "... server/src/urldispatch/student_url_handler.o"
-	@echo "... server/src/urldispatch/student_url_handler.i"
-	@echo "... server/src/urldispatch/student_url_handler.s"
-	@echo "... server/src/urldispatch/url_router.o"
-	@echo "... server/src/urldispatch/url_router.i"
-	@echo "... server/src/urldispatch/url_router.s"
+	@echo "... server/src/url_router/api_url_handler.o"
+	@echo "... server/src/url_router/api_url_handler.i"
+	@echo "... server/src/url_router/api_url_handler.s"
+	@echo "... server/src/url_router/static_url_handler.o"
+	@echo "... server/src/url_router/static_url_handler.i"
+	@echo "... server/src/url_router/static_url_handler.s"
+	@echo "... server/src/url_router/url_router.o"
+	@echo "... server/src/url_router/url_router.i"
+	@echo "... server/src/url_router/url_router.s"
 .PHONY : help
 
 

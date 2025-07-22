@@ -7,10 +7,10 @@
 #include "../controller/base_controller.hpp"
 
 namespace chenglei {
-class MethodRouter {
+class ApiRouterMgr {
 public:
-    static MethodRouter& getInstance() {
-        static MethodRouter instance;
+    static ApiRouterMgr& getInstance() {
+        static ApiRouterMgr instance;
         return instance;
     }
 
@@ -19,9 +19,9 @@ public:
     chenglei::BaseController* getController(const std::string &method);
 
 private:
-    MethodRouter() = default;
-    MethodRouter(const MethodRouter&) = delete;
-    MethodRouter& operator=(const MethodRouter&) = delete;
+    ApiRouterMgr() = default;
+    ApiRouterMgr(const ApiRouterMgr&) = delete;
+    ApiRouterMgr& operator=(const ApiRouterMgr&) = delete;
     std::unordered_map<std::string, std::shared_ptr<BaseController>> controllers_;
     std::mutex mutex_;
 
