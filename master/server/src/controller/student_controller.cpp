@@ -12,8 +12,6 @@
 #include "../dao/student_dao.hpp"
 #include "../../../public/json.hpp"
 
-#include "../utils/snowflake.hpp"
-
 using json = nlohmann::json;
 
 namespace chenglei {
@@ -65,10 +63,7 @@ std::string StudentController::query_student(const std::string& id, const std::s
 StudentBaseInfo json_to_SB_obj(const json &req)
 {
     StudentBaseInfo stu;
-
-    std::string global_id = chenglei::SnowflakeIDGenerator::instance().next_id();
-    stu.setID(global_id);
-
+    
     if(req.contains("name"))
         stu.setName(req.value("name", ""));
     if (req.contains("birth_date")) stu.setBirthDate(req.value("birth_date", ""));
