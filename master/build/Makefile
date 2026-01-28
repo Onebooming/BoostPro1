@@ -190,6 +190,54 @@ server/src/api_router/api_router.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/boost_server.dir/build.make CMakeFiles/boost_server.dir/server/src/api_router/api_router.cpp.s
 .PHONY : server/src/api_router/api_router.cpp.s
 
+server/src/controller/base_api_controller.o: server/src/controller/base_api_controller.cpp.o
+.PHONY : server/src/controller/base_api_controller.o
+
+# target to build an object file
+server/src/controller/base_api_controller.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/boost_server.dir/build.make CMakeFiles/boost_server.dir/server/src/controller/base_api_controller.cpp.o
+.PHONY : server/src/controller/base_api_controller.cpp.o
+
+server/src/controller/base_api_controller.i: server/src/controller/base_api_controller.cpp.i
+.PHONY : server/src/controller/base_api_controller.i
+
+# target to preprocess a source file
+server/src/controller/base_api_controller.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/boost_server.dir/build.make CMakeFiles/boost_server.dir/server/src/controller/base_api_controller.cpp.i
+.PHONY : server/src/controller/base_api_controller.cpp.i
+
+server/src/controller/base_api_controller.s: server/src/controller/base_api_controller.cpp.s
+.PHONY : server/src/controller/base_api_controller.s
+
+# target to generate assembly for a file
+server/src/controller/base_api_controller.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/boost_server.dir/build.make CMakeFiles/boost_server.dir/server/src/controller/base_api_controller.cpp.s
+.PHONY : server/src/controller/base_api_controller.cpp.s
+
+server/src/controller/course_controller.o: server/src/controller/course_controller.cpp.o
+.PHONY : server/src/controller/course_controller.o
+
+# target to build an object file
+server/src/controller/course_controller.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/boost_server.dir/build.make CMakeFiles/boost_server.dir/server/src/controller/course_controller.cpp.o
+.PHONY : server/src/controller/course_controller.cpp.o
+
+server/src/controller/course_controller.i: server/src/controller/course_controller.cpp.i
+.PHONY : server/src/controller/course_controller.i
+
+# target to preprocess a source file
+server/src/controller/course_controller.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/boost_server.dir/build.make CMakeFiles/boost_server.dir/server/src/controller/course_controller.cpp.i
+.PHONY : server/src/controller/course_controller.cpp.i
+
+server/src/controller/course_controller.s: server/src/controller/course_controller.cpp.s
+.PHONY : server/src/controller/course_controller.s
+
+# target to generate assembly for a file
+server/src/controller/course_controller.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/boost_server.dir/build.make CMakeFiles/boost_server.dir/server/src/controller/course_controller.cpp.s
+.PHONY : server/src/controller/course_controller.cpp.s
+
 server/src/controller/student_controller.o: server/src/controller/student_controller.cpp.o
 .PHONY : server/src/controller/student_controller.o
 
@@ -213,6 +261,150 @@ server/src/controller/student_controller.s: server/src/controller/student_contro
 server/src/controller/student_controller.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/boost_server.dir/build.make CMakeFiles/boost_server.dir/server/src/controller/student_controller.cpp.s
 .PHONY : server/src/controller/student_controller.cpp.s
+
+server/src/controller/teacher_controller.o: server/src/controller/teacher_controller.cpp.o
+.PHONY : server/src/controller/teacher_controller.o
+
+# target to build an object file
+server/src/controller/teacher_controller.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/boost_server.dir/build.make CMakeFiles/boost_server.dir/server/src/controller/teacher_controller.cpp.o
+.PHONY : server/src/controller/teacher_controller.cpp.o
+
+server/src/controller/teacher_controller.i: server/src/controller/teacher_controller.cpp.i
+.PHONY : server/src/controller/teacher_controller.i
+
+# target to preprocess a source file
+server/src/controller/teacher_controller.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/boost_server.dir/build.make CMakeFiles/boost_server.dir/server/src/controller/teacher_controller.cpp.i
+.PHONY : server/src/controller/teacher_controller.cpp.i
+
+server/src/controller/teacher_controller.s: server/src/controller/teacher_controller.cpp.s
+.PHONY : server/src/controller/teacher_controller.s
+
+# target to generate assembly for a file
+server/src/controller/teacher_controller.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/boost_server.dir/build.make CMakeFiles/boost_server.dir/server/src/controller/teacher_controller.cpp.s
+.PHONY : server/src/controller/teacher_controller.cpp.s
+
+server/src/dao/blog_dao.o: server/src/dao/blog_dao.cpp.o
+.PHONY : server/src/dao/blog_dao.o
+
+# target to build an object file
+server/src/dao/blog_dao.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/boost_server.dir/build.make CMakeFiles/boost_server.dir/server/src/dao/blog_dao.cpp.o
+.PHONY : server/src/dao/blog_dao.cpp.o
+
+server/src/dao/blog_dao.i: server/src/dao/blog_dao.cpp.i
+.PHONY : server/src/dao/blog_dao.i
+
+# target to preprocess a source file
+server/src/dao/blog_dao.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/boost_server.dir/build.make CMakeFiles/boost_server.dir/server/src/dao/blog_dao.cpp.i
+.PHONY : server/src/dao/blog_dao.cpp.i
+
+server/src/dao/blog_dao.s: server/src/dao/blog_dao.cpp.s
+.PHONY : server/src/dao/blog_dao.s
+
+# target to generate assembly for a file
+server/src/dao/blog_dao.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/boost_server.dir/build.make CMakeFiles/boost_server.dir/server/src/dao/blog_dao.cpp.s
+.PHONY : server/src/dao/blog_dao.cpp.s
+
+server/src/dao/classroom_dao.o: server/src/dao/classroom_dao.cpp.o
+.PHONY : server/src/dao/classroom_dao.o
+
+# target to build an object file
+server/src/dao/classroom_dao.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/boost_server.dir/build.make CMakeFiles/boost_server.dir/server/src/dao/classroom_dao.cpp.o
+.PHONY : server/src/dao/classroom_dao.cpp.o
+
+server/src/dao/classroom_dao.i: server/src/dao/classroom_dao.cpp.i
+.PHONY : server/src/dao/classroom_dao.i
+
+# target to preprocess a source file
+server/src/dao/classroom_dao.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/boost_server.dir/build.make CMakeFiles/boost_server.dir/server/src/dao/classroom_dao.cpp.i
+.PHONY : server/src/dao/classroom_dao.cpp.i
+
+server/src/dao/classroom_dao.s: server/src/dao/classroom_dao.cpp.s
+.PHONY : server/src/dao/classroom_dao.s
+
+# target to generate assembly for a file
+server/src/dao/classroom_dao.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/boost_server.dir/build.make CMakeFiles/boost_server.dir/server/src/dao/classroom_dao.cpp.s
+.PHONY : server/src/dao/classroom_dao.cpp.s
+
+server/src/dao/course_dao.o: server/src/dao/course_dao.cpp.o
+.PHONY : server/src/dao/course_dao.o
+
+# target to build an object file
+server/src/dao/course_dao.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/boost_server.dir/build.make CMakeFiles/boost_server.dir/server/src/dao/course_dao.cpp.o
+.PHONY : server/src/dao/course_dao.cpp.o
+
+server/src/dao/course_dao.i: server/src/dao/course_dao.cpp.i
+.PHONY : server/src/dao/course_dao.i
+
+# target to preprocess a source file
+server/src/dao/course_dao.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/boost_server.dir/build.make CMakeFiles/boost_server.dir/server/src/dao/course_dao.cpp.i
+.PHONY : server/src/dao/course_dao.cpp.i
+
+server/src/dao/course_dao.s: server/src/dao/course_dao.cpp.s
+.PHONY : server/src/dao/course_dao.s
+
+# target to generate assembly for a file
+server/src/dao/course_dao.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/boost_server.dir/build.make CMakeFiles/boost_server.dir/server/src/dao/course_dao.cpp.s
+.PHONY : server/src/dao/course_dao.cpp.s
+
+server/src/dao/news_dao.o: server/src/dao/news_dao.cpp.o
+.PHONY : server/src/dao/news_dao.o
+
+# target to build an object file
+server/src/dao/news_dao.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/boost_server.dir/build.make CMakeFiles/boost_server.dir/server/src/dao/news_dao.cpp.o
+.PHONY : server/src/dao/news_dao.cpp.o
+
+server/src/dao/news_dao.i: server/src/dao/news_dao.cpp.i
+.PHONY : server/src/dao/news_dao.i
+
+# target to preprocess a source file
+server/src/dao/news_dao.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/boost_server.dir/build.make CMakeFiles/boost_server.dir/server/src/dao/news_dao.cpp.i
+.PHONY : server/src/dao/news_dao.cpp.i
+
+server/src/dao/news_dao.s: server/src/dao/news_dao.cpp.s
+.PHONY : server/src/dao/news_dao.s
+
+# target to generate assembly for a file
+server/src/dao/news_dao.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/boost_server.dir/build.make CMakeFiles/boost_server.dir/server/src/dao/news_dao.cpp.s
+.PHONY : server/src/dao/news_dao.cpp.s
+
+server/src/dao/notification_dao.o: server/src/dao/notification_dao.cpp.o
+.PHONY : server/src/dao/notification_dao.o
+
+# target to build an object file
+server/src/dao/notification_dao.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/boost_server.dir/build.make CMakeFiles/boost_server.dir/server/src/dao/notification_dao.cpp.o
+.PHONY : server/src/dao/notification_dao.cpp.o
+
+server/src/dao/notification_dao.i: server/src/dao/notification_dao.cpp.i
+.PHONY : server/src/dao/notification_dao.i
+
+# target to preprocess a source file
+server/src/dao/notification_dao.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/boost_server.dir/build.make CMakeFiles/boost_server.dir/server/src/dao/notification_dao.cpp.i
+.PHONY : server/src/dao/notification_dao.cpp.i
+
+server/src/dao/notification_dao.s: server/src/dao/notification_dao.cpp.s
+.PHONY : server/src/dao/notification_dao.s
+
+# target to generate assembly for a file
+server/src/dao/notification_dao.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/boost_server.dir/build.make CMakeFiles/boost_server.dir/server/src/dao/notification_dao.cpp.s
+.PHONY : server/src/dao/notification_dao.cpp.s
 
 server/src/dao/student_dao.o: server/src/dao/student_dao.cpp.o
 .PHONY : server/src/dao/student_dao.o
@@ -238,6 +430,30 @@ server/src/dao/student_dao.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/boost_server.dir/build.make CMakeFiles/boost_server.dir/server/src/dao/student_dao.cpp.s
 .PHONY : server/src/dao/student_dao.cpp.s
 
+server/src/dao/teacher_dao.o: server/src/dao/teacher_dao.cpp.o
+.PHONY : server/src/dao/teacher_dao.o
+
+# target to build an object file
+server/src/dao/teacher_dao.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/boost_server.dir/build.make CMakeFiles/boost_server.dir/server/src/dao/teacher_dao.cpp.o
+.PHONY : server/src/dao/teacher_dao.cpp.o
+
+server/src/dao/teacher_dao.i: server/src/dao/teacher_dao.cpp.i
+.PHONY : server/src/dao/teacher_dao.i
+
+# target to preprocess a source file
+server/src/dao/teacher_dao.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/boost_server.dir/build.make CMakeFiles/boost_server.dir/server/src/dao/teacher_dao.cpp.i
+.PHONY : server/src/dao/teacher_dao.cpp.i
+
+server/src/dao/teacher_dao.s: server/src/dao/teacher_dao.cpp.s
+.PHONY : server/src/dao/teacher_dao.s
+
+# target to generate assembly for a file
+server/src/dao/teacher_dao.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/boost_server.dir/build.make CMakeFiles/boost_server.dir/server/src/dao/teacher_dao.cpp.s
+.PHONY : server/src/dao/teacher_dao.cpp.s
+
 server/src/database/mysql_pro.o: server/src/database/mysql_pro.cpp.o
 .PHONY : server/src/database/mysql_pro.o
 
@@ -261,6 +477,126 @@ server/src/database/mysql_pro.s: server/src/database/mysql_pro.cpp.s
 server/src/database/mysql_pro.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/boost_server.dir/build.make CMakeFiles/boost_server.dir/server/src/database/mysql_pro.cpp.s
 .PHONY : server/src/database/mysql_pro.cpp.s
+
+server/src/entity/course.o: server/src/entity/course.cpp.o
+.PHONY : server/src/entity/course.o
+
+# target to build an object file
+server/src/entity/course.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/boost_server.dir/build.make CMakeFiles/boost_server.dir/server/src/entity/course.cpp.o
+.PHONY : server/src/entity/course.cpp.o
+
+server/src/entity/course.i: server/src/entity/course.cpp.i
+.PHONY : server/src/entity/course.i
+
+# target to preprocess a source file
+server/src/entity/course.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/boost_server.dir/build.make CMakeFiles/boost_server.dir/server/src/entity/course.cpp.i
+.PHONY : server/src/entity/course.cpp.i
+
+server/src/entity/course.s: server/src/entity/course.cpp.s
+.PHONY : server/src/entity/course.s
+
+# target to generate assembly for a file
+server/src/entity/course.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/boost_server.dir/build.make CMakeFiles/boost_server.dir/server/src/entity/course.cpp.s
+.PHONY : server/src/entity/course.cpp.s
+
+server/src/entity/course_detailed.o: server/src/entity/course_detailed.cpp.o
+.PHONY : server/src/entity/course_detailed.o
+
+# target to build an object file
+server/src/entity/course_detailed.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/boost_server.dir/build.make CMakeFiles/boost_server.dir/server/src/entity/course_detailed.cpp.o
+.PHONY : server/src/entity/course_detailed.cpp.o
+
+server/src/entity/course_detailed.i: server/src/entity/course_detailed.cpp.i
+.PHONY : server/src/entity/course_detailed.i
+
+# target to preprocess a source file
+server/src/entity/course_detailed.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/boost_server.dir/build.make CMakeFiles/boost_server.dir/server/src/entity/course_detailed.cpp.i
+.PHONY : server/src/entity/course_detailed.cpp.i
+
+server/src/entity/course_detailed.s: server/src/entity/course_detailed.cpp.s
+.PHONY : server/src/entity/course_detailed.s
+
+# target to generate assembly for a file
+server/src/entity/course_detailed.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/boost_server.dir/build.make CMakeFiles/boost_server.dir/server/src/entity/course_detailed.cpp.s
+.PHONY : server/src/entity/course_detailed.cpp.s
+
+server/src/entity/course_manager.o: server/src/entity/course_manager.cpp.o
+.PHONY : server/src/entity/course_manager.o
+
+# target to build an object file
+server/src/entity/course_manager.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/boost_server.dir/build.make CMakeFiles/boost_server.dir/server/src/entity/course_manager.cpp.o
+.PHONY : server/src/entity/course_manager.cpp.o
+
+server/src/entity/course_manager.i: server/src/entity/course_manager.cpp.i
+.PHONY : server/src/entity/course_manager.i
+
+# target to preprocess a source file
+server/src/entity/course_manager.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/boost_server.dir/build.make CMakeFiles/boost_server.dir/server/src/entity/course_manager.cpp.i
+.PHONY : server/src/entity/course_manager.cpp.i
+
+server/src/entity/course_manager.s: server/src/entity/course_manager.cpp.s
+.PHONY : server/src/entity/course_manager.s
+
+# target to generate assembly for a file
+server/src/entity/course_manager.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/boost_server.dir/build.make CMakeFiles/boost_server.dir/server/src/entity/course_manager.cpp.s
+.PHONY : server/src/entity/course_manager.cpp.s
+
+server/src/entity/student.o: server/src/entity/student.cpp.o
+.PHONY : server/src/entity/student.o
+
+# target to build an object file
+server/src/entity/student.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/boost_server.dir/build.make CMakeFiles/boost_server.dir/server/src/entity/student.cpp.o
+.PHONY : server/src/entity/student.cpp.o
+
+server/src/entity/student.i: server/src/entity/student.cpp.i
+.PHONY : server/src/entity/student.i
+
+# target to preprocess a source file
+server/src/entity/student.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/boost_server.dir/build.make CMakeFiles/boost_server.dir/server/src/entity/student.cpp.i
+.PHONY : server/src/entity/student.cpp.i
+
+server/src/entity/student.s: server/src/entity/student.cpp.s
+.PHONY : server/src/entity/student.s
+
+# target to generate assembly for a file
+server/src/entity/student.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/boost_server.dir/build.make CMakeFiles/boost_server.dir/server/src/entity/student.cpp.s
+.PHONY : server/src/entity/student.cpp.s
+
+server/src/entity/teacher.o: server/src/entity/teacher.cpp.o
+.PHONY : server/src/entity/teacher.o
+
+# target to build an object file
+server/src/entity/teacher.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/boost_server.dir/build.make CMakeFiles/boost_server.dir/server/src/entity/teacher.cpp.o
+.PHONY : server/src/entity/teacher.cpp.o
+
+server/src/entity/teacher.i: server/src/entity/teacher.cpp.i
+.PHONY : server/src/entity/teacher.i
+
+# target to preprocess a source file
+server/src/entity/teacher.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/boost_server.dir/build.make CMakeFiles/boost_server.dir/server/src/entity/teacher.cpp.i
+.PHONY : server/src/entity/teacher.cpp.i
+
+server/src/entity/teacher.s: server/src/entity/teacher.cpp.s
+.PHONY : server/src/entity/teacher.s
+
+# target to generate assembly for a file
+server/src/entity/teacher.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/boost_server.dir/build.make CMakeFiles/boost_server.dir/server/src/entity/teacher.cpp.s
+.PHONY : server/src/entity/teacher.cpp.s
 
 server/src/server.o: server/src/server.cpp.o
 .PHONY : server/src/server.o
@@ -358,6 +694,30 @@ server/src/url_router/url_router.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/boost_server.dir/build.make CMakeFiles/boost_server.dir/server/src/url_router/url_router.cpp.s
 .PHONY : server/src/url_router/url_router.cpp.s
 
+server/src/utils/api_response.o: server/src/utils/api_response.cpp.o
+.PHONY : server/src/utils/api_response.o
+
+# target to build an object file
+server/src/utils/api_response.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/boost_server.dir/build.make CMakeFiles/boost_server.dir/server/src/utils/api_response.cpp.o
+.PHONY : server/src/utils/api_response.cpp.o
+
+server/src/utils/api_response.i: server/src/utils/api_response.cpp.i
+.PHONY : server/src/utils/api_response.i
+
+# target to preprocess a source file
+server/src/utils/api_response.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/boost_server.dir/build.make CMakeFiles/boost_server.dir/server/src/utils/api_response.cpp.i
+.PHONY : server/src/utils/api_response.cpp.i
+
+server/src/utils/api_response.s: server/src/utils/api_response.cpp.s
+.PHONY : server/src/utils/api_response.s
+
+# target to generate assembly for a file
+server/src/utils/api_response.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/boost_server.dir/build.make CMakeFiles/boost_server.dir/server/src/utils/api_response.cpp.s
+.PHONY : server/src/utils/api_response.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -374,15 +734,57 @@ help:
 	@echo "... server/src/api_router/api_router.o"
 	@echo "... server/src/api_router/api_router.i"
 	@echo "... server/src/api_router/api_router.s"
+	@echo "... server/src/controller/base_api_controller.o"
+	@echo "... server/src/controller/base_api_controller.i"
+	@echo "... server/src/controller/base_api_controller.s"
+	@echo "... server/src/controller/course_controller.o"
+	@echo "... server/src/controller/course_controller.i"
+	@echo "... server/src/controller/course_controller.s"
 	@echo "... server/src/controller/student_controller.o"
 	@echo "... server/src/controller/student_controller.i"
 	@echo "... server/src/controller/student_controller.s"
+	@echo "... server/src/controller/teacher_controller.o"
+	@echo "... server/src/controller/teacher_controller.i"
+	@echo "... server/src/controller/teacher_controller.s"
+	@echo "... server/src/dao/blog_dao.o"
+	@echo "... server/src/dao/blog_dao.i"
+	@echo "... server/src/dao/blog_dao.s"
+	@echo "... server/src/dao/classroom_dao.o"
+	@echo "... server/src/dao/classroom_dao.i"
+	@echo "... server/src/dao/classroom_dao.s"
+	@echo "... server/src/dao/course_dao.o"
+	@echo "... server/src/dao/course_dao.i"
+	@echo "... server/src/dao/course_dao.s"
+	@echo "... server/src/dao/news_dao.o"
+	@echo "... server/src/dao/news_dao.i"
+	@echo "... server/src/dao/news_dao.s"
+	@echo "... server/src/dao/notification_dao.o"
+	@echo "... server/src/dao/notification_dao.i"
+	@echo "... server/src/dao/notification_dao.s"
 	@echo "... server/src/dao/student_dao.o"
 	@echo "... server/src/dao/student_dao.i"
 	@echo "... server/src/dao/student_dao.s"
+	@echo "... server/src/dao/teacher_dao.o"
+	@echo "... server/src/dao/teacher_dao.i"
+	@echo "... server/src/dao/teacher_dao.s"
 	@echo "... server/src/database/mysql_pro.o"
 	@echo "... server/src/database/mysql_pro.i"
 	@echo "... server/src/database/mysql_pro.s"
+	@echo "... server/src/entity/course.o"
+	@echo "... server/src/entity/course.i"
+	@echo "... server/src/entity/course.s"
+	@echo "... server/src/entity/course_detailed.o"
+	@echo "... server/src/entity/course_detailed.i"
+	@echo "... server/src/entity/course_detailed.s"
+	@echo "... server/src/entity/course_manager.o"
+	@echo "... server/src/entity/course_manager.i"
+	@echo "... server/src/entity/course_manager.s"
+	@echo "... server/src/entity/student.o"
+	@echo "... server/src/entity/student.i"
+	@echo "... server/src/entity/student.s"
+	@echo "... server/src/entity/teacher.o"
+	@echo "... server/src/entity/teacher.i"
+	@echo "... server/src/entity/teacher.s"
 	@echo "... server/src/server.o"
 	@echo "... server/src/server.i"
 	@echo "... server/src/server.s"
@@ -395,6 +797,9 @@ help:
 	@echo "... server/src/url_router/url_router.o"
 	@echo "... server/src/url_router/url_router.i"
 	@echo "... server/src/url_router/url_router.s"
+	@echo "... server/src/utils/api_response.o"
+	@echo "... server/src/utils/api_response.i"
+	@echo "... server/src/utils/api_response.s"
 .PHONY : help
 
 

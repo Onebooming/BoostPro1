@@ -1481,4 +1481,5 @@ CMakeFiles/boost_server.dir/server/src/controller/student_controller.cpp.o: \
  /usr/include/c++/10/pstl/glue_numeric_defs.h /usr/include/c++/10/any \
  /home/parallels/chenglei_work/2025/BoostPro1/master/server/src/controller/../dao/student_dao.hpp \
  /home/parallels/chenglei_work/2025/BoostPro1/master/server/src/controller/../dao/../entity/student.hpp \
- /home/parallels/chenglei_work/2025/BoostPro1/master/server/src/controller/../utils/snowflake.hpp
+ /home/parallels/chenglei_work/2025/BoostPro1/master/server/src/controller/../dao/../entity/personbase.hpp \
+ /home/parallels/chenglei_work/2025/BoostPro1/master/server/src/controller/../dao/../entity/../utils/snowflake.hpp

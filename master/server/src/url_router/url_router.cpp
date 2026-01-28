@@ -54,7 +54,10 @@ BaseUrlHandler* UrlRouter::get(const std::string& request_url) {
     size_t best_len = 0;
     for (const auto& [prefix, handler_ptr] : handlers_) {
         if (path_only.compare(0, prefix.size(), prefix) == 0) {
-            if (path_only.size() == prefix.size() ||
+            // 对于根路径"/"，允许匹配任何以/开头的路径（让handler自己验证）
+            // 对于其他前缀，要求精确匹配或后面跟/
+            if (prefix == "/" ||
+                path_only.size() == prefix.size() ||
                 path_only[prefix.size()] == '/') {
                 if (prefix.size() > best_len) {
                     best = handler_ptr.get();

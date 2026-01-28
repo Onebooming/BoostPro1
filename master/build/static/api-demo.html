@@ -1,0 +1,853 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BoostPro API 测试页面</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f5f5f5;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .header {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+        }
+
+        .header h1 {
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        .header p {
+            color: #666;
+        }
+
+        .tabs {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        .tab {
+            padding: 10px 20px;
+            background: white;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .tab:hover {
+            background: #f0f0f0;
+        }
+
+        .tab.active {
+            background: #007bff;
+            color: white;
+            border-color: #007bff;
+        }
+
+        .tab-content {
+            display: none;
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            color: #333;
+            font-weight: 500;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 8px 12px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 14px;
+        }
+
+        .btn {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 14px;
+            transition: all 0.3s;
+        }
+
+        .btn-primary {
+            background: #007bff;
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: #0056b3;
+        }
+
+        .btn-success {
+            background: #28a745;
+            color: white;
+        }
+
+        .btn-success:hover {
+            background: #218838;
+        }
+
+        .btn-danger {
+            background: #dc3545;
+            color: white;
+        }
+
+        .btn-danger:hover {
+            background: #c82333;
+        }
+
+        .response-box {
+            margin-top: 20px;
+            padding: 15px;
+            background: #f8f9fa;
+            border-radius: 4px;
+            border-left: 4px solid #007bff;
+        }
+
+        .response-box.error {
+            border-left-color: #dc3545;
+        }
+
+        .response-box pre {
+            margin: 0;
+            padding: 10px;
+            background: white;
+            border-radius: 4px;
+            overflow-x: auto;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        table th,
+        table td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+
+        table th {
+            background: #f8f9fa;
+            font-weight: 600;
+        }
+
+        table tr:hover {
+            background: #f8f9fa;
+        }
+
+        .actions {
+            display: flex;
+            gap: 5px;
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 4px 8px;
+            border-radius: 12px;
+            font-size: 12px;
+            font-weight: 500;
+        }
+
+        .badge-success {
+            background: #d4edda;
+            color: #155724;
+        }
+
+        .badge-danger {
+            background: #f8d7da;
+            color: #721c24;
+        }
+
+        .loading {
+            display: none;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .loading.active {
+            display: block;
+        }
+
+        .spinner {
+            border: 3px solid #f3f3f3;
+            border-top: 3px solid #007bff;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            animation: spin 1s linear infinite;
+            margin: 0 auto;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🚀 BoostPro API 测试页面</h1>
+            <p>RESTful API 交互演示 - 学生、教师、课程管理</p>
+        </div>
+
+        <div class="tabs">
+            <div class="tab active" onclick="switchTab('students')">学生管理</div>
+            <div class="tab" onclick="switchTab('teachers')">教师管理</div>
+            <div class="tab" onclick="switchTab('courses')">课程管理</div>
+        </div>
+
+        <!-- 学生管理 -->
+        <div id="students" class="tab-content active">
+            <h2>学生管理</h2>
+
+            <div class="form-group">
+                <button class="btn btn-primary" onclick="loadStudents()">刷新列表</button>
+                <button class="btn btn-success" onclick="showAddStudentForm()">添加学生</button>
+            </div>
+
+            <div id="students-loading" class="loading">
+                <div class="spinner"></div>
+                <p>加载中...</p>
+            </div>
+
+            <div id="students-response"></div>
+
+            <div id="students-table"></div>
+
+            <div id="add-student-form" style="display: none; margin-top: 20px;">
+                <h3>添加新学生</h3>
+                <div class="form-group">
+                    <label>姓名 *</label>
+                    <input type="text" id="student-name" placeholder="请输入姓名">
+                </div>
+                <div class="form-group">
+                    <label>学号 *</label>
+                    <input type="text" id="student-id" placeholder="如：S20240001">
+                </div>
+                <div class="form-group">
+                    <label>性别</label>
+                    <select id="student-gender">
+                        <option value="">请选择</option>
+                        <option value="男">男</option>
+                        <option value="女">女</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>出生日期</label>
+                    <input type="date" id="student-birth-date">
+                </div>
+                <div class="form-group">
+                    <label>年级</label>
+                    <input type="text" id="student-grade" placeholder="如：2024">
+                </div>
+                <div class="form-group">
+                    <label>专业</label>
+                    <input type="text" id="student-major" placeholder="如：计算机科学与技术">
+                </div>
+                <div class="form-group">
+                    <label>班级</label>
+                    <input type="text" id="student-class" placeholder="如：计算机1班">
+                </div>
+                <div class="form-group">
+                    <label>电话</label>
+                    <input type="text" id="student-phone" placeholder="请输入电话号码">
+                </div>
+                <div class="form-group">
+                    <label>地址</label>
+                    <input type="text" id="student-address" placeholder="请输入家庭住址">
+                </div>
+                <div class="form-group">
+                    <label>爱好</label>
+                    <input type="text" id="student-hobby" placeholder="请输入爱好">
+                </div>
+                <div class="form-group">
+                    <label>父亲姓名</label>
+                    <input type="text" id="student-father-name" placeholder="请输入父亲姓名">
+                </div>
+                <div class="form-group">
+                    <label>母亲姓名</label>
+                    <input type="text" id="student-mother-name" placeholder="请输入母亲姓名">
+                </div>
+                <button class="btn btn-success" onclick="addStudent()">提交</button>
+                <button class="btn" onclick="hideAddStudentForm()">取消</button>
+            </div>
+        </div>
+
+        <!-- 教师管理 -->
+        <div id="teachers" class="tab-content">
+            <h2>教师管理</h2>
+
+            <div class="form-group">
+                <button class="btn btn-primary" onclick="loadTeachers()">刷新列表</button>
+                <button class="btn btn-success" onclick="showAddTeacherForm()">添加教师</button>
+            </div>
+
+            <div id="teachers-loading" class="loading">
+                <div class="spinner"></div>
+                <p>加载中...</p>
+            </div>
+
+            <div id="teachers-response"></div>
+            <div id="teachers-table"></div>
+
+            <div id="add-teacher-form" style="display: none; margin-top: 20px;">
+                <h3>添加新教师</h3>
+                <div class="form-group">
+                    <label>姓名 *</label>
+                    <input type="text" id="teacher-name" placeholder="请输入姓名">
+                </div>
+                <div class="form-group">
+                    <label>工号 *</label>
+                    <input type="text" id="teacher-teacher-id" placeholder="如：T001">
+                </div>
+                <div class="form-group">
+                    <label>性别</label>
+                    <select id="teacher-gender">
+                        <option value="">请选择</option>
+                        <option value="男">男</option>
+                        <option value="女">女</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>部门</label>
+                    <input type="text" id="teacher-department" placeholder="如：计算机学院">
+                </div>
+                <div class="form-group">
+                    <label>职位</label>
+                    <input type="text" id="teacher-position" placeholder="如：教授">
+                </div>
+                <div class="form-group">
+                    <label>办公室</label>
+                    <input type="text" id="teacher-office" placeholder="如：A101">
+                </div>
+                <div class="form-group">
+                    <label>电话</label>
+                    <input type="text" id="teacher-phone" placeholder="请输入电话号码">
+                </div>
+                <button class="btn btn-success" onclick="addTeacher()">提交</button>
+                <button class="btn" onclick="hideAddTeacherForm()">取消</button>
+            </div>
+        </div>
+
+        <!-- 课程管理 -->
+        <div id="courses" class="tab-content">
+            <h2>课程管理</h2>
+
+            <div class="form-group">
+                <button class="btn btn-primary" onclick="loadCourses()">刷新列表</button>
+                <button class="btn btn-success" onclick="showAddCourseForm()">添加课程</button>
+            </div>
+
+            <div id="courses-loading" class="loading">
+                <div class="spinner"></div>
+                <p>加载中...</p>
+            </div>
+
+            <div id="courses-response"></div>
+            <div id="courses-table"></div>
+
+            <div id="add-course-form" style="display: none; margin-top: 20px;">
+                <h3>添加新课程</h3>
+                <div class="form-group">
+                    <label>课程编号 *</label>
+                    <input type="text" id="course-course-id" placeholder="如：C001">
+                </div>
+                <div class="form-group">
+                    <label>课程名称 *</label>
+                    <input type="text" id="course-name" placeholder="如：数据结构">
+                </div>
+                <div class="form-group">
+                    <label>授课教师ID *</label>
+                    <input type="text" id="course-teacher-id" placeholder="教师雪花ID">
+                </div>
+                <div class="form-group">
+                    <label>学分</label>
+                    <input type="number" step="0.5" id="course-credits" placeholder="如：3.0">
+                </div>
+                <div class="form-group">
+                    <label>最大选课人数</label>
+                    <input type="number" id="course-max-students" placeholder="如：100">
+                </div>
+                <div class="form-group">
+                    <label>课程类型</label>
+                    <select id="course-type">
+                        <option value="">请选择</option>
+                        <option value="必修">必修</option>
+                        <option value="选修">选修</option>
+                        <option value="专业选修">专业选修</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>学期</label>
+                    <input type="text" id="course-semester" placeholder="如：2024-春季">
+                </div>
+                <div class="form-group">
+                    <label>课程描述</label>
+                    <textarea id="course-description" rows="3" placeholder="请输入课程描述"></textarea>
+                </div>
+                <button class="btn btn-success" onclick="addCourse()">提交</button>
+                <button class="btn" onclick="hideAddCourseForm()">取消</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="static/js/api-client.js"></script>
+    <script>
+        // 切换标签页
+        function switchTab(tabName) {
+            // 隐藏所有标签内容
+            document.querySelectorAll('.tab-content').forEach(content => {
+                content.classList.remove('active');
+            });
+            document.querySelectorAll('.tab').forEach(tab => {
+                tab.classList.remove('active');
+            });
+
+            // 显示选中的标签
+            document.getElementById(tabName).classList.add('active');
+            event.target.classList.add('active');
+
+            // 加载对应数据
+            if (tabName === 'students') loadStudents();
+            if (tabName === 'teachers') loadTeachers();
+            if (tabName === 'courses') loadCourses();
+        }
+
+        // 显示响应
+        function showResponse(elementId, data, isError = false) {
+            const element = document.getElementById(elementId);
+            element.className = 'response-box' + (isError ? ' error' : '');
+            element.innerHTML = `
+                <strong>响应:</strong>
+                <pre>${JSON.stringify(data, null, 2)}</pre>
+            `;
+        }
+
+        // ============ 学生相关函数 ============
+
+        async function loadStudents() {
+            const loading = document.getElementById('students-loading');
+            loading.classList.add('active');
+
+            try {
+                const response = await api.student.getList({ page: 1, page_size: 10 });
+                showResponse('students-response', response);
+
+                if (response.data && response.data.items) {
+                    renderStudentsTable(response.data.items);
+                }
+            } catch (error) {
+                showResponse('students-response', { error: error.message }, true);
+            } finally {
+                loading.classList.remove('active');
+            }
+        }
+
+        function renderStudentsTable(students) {
+            const tableContainer = document.getElementById('students-table');
+
+            if (!students || students.length === 0) {
+                tableContainer.innerHTML = '<p style="text-align: center; color: #999;">暂无数据</p>';
+                return;
+            }
+
+            let html = `
+                <table>
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>学号</th>
+                            <th>姓名</th>
+                            <th>性别</th>
+                            <th>年级</th>
+                            <th>专业</th>
+                            <th>班级</th>
+                            <th>操作</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+            `;
+
+            students.forEach(student => {
+                html += `
+                    <tr>
+                        <td><small>${student.id || ''}</small></td>
+                        <td>${student.student_id || ''}</td>
+                        <td>${student.name || ''}</td>
+                        <td>${student.gender || ''}</td>
+                        <td>${student.grade || ''}</td>
+                        <td>${student.major || ''}</td>
+                        <td>${student.class_name || ''}</td>
+                        <td>
+                            <div class="actions">
+                                <button class="btn btn-primary" style="padding: 5px 10px;" onclick="viewStudent('${student.id}')">查看</button>
+                                <button class="btn btn-danger" style="padding: 5px 10px;" onclick="deleteStudent('${student.id}')">删除</button>
+                            </div>
+                        </td>
+                    </tr>
+                `;
+            });
+
+            html += '</tbody></table>';
+            tableContainer.innerHTML = html;
+        }
+
+        function showAddStudentForm() {
+            document.getElementById('add-student-form').style.display = 'block';
+        }
+
+        function hideAddStudentForm() {
+            document.getElementById('add-student-form').style.display = 'none';
+        }
+
+        async function addStudent() {
+            const data = {
+                name: document.getElementById('student-name').value,
+                student_id: document.getElementById('student-id').value,
+                gender: document.getElementById('student-gender').value,
+                birth_date: document.getElementById('student-birth-date').value,
+                grade: document.getElementById('student-grade').value,
+                major: document.getElementById('student-major').value,
+                class_name: document.getElementById('student-class').value,
+                phone_number: document.getElementById('student-phone').value,
+                address: document.getElementById('student-address').value,
+                hobby: document.getElementById('student-hobby').value,
+                father_name: document.getElementById('student-father-name').value,
+                mother_name: document.getElementById('student-mother-name').value
+            };
+
+            if (!data.name || !data.student_id) {
+                alert('请填写必填字段（姓名和学号）');
+                return;
+            }
+
+            try {
+                const response = await api.student.create(data);
+                showResponse('students-response', response);
+                hideAddStudentForm();
+                loadStudents();
+            } catch (error) {
+                showResponse('students-response', { error: error.message }, true);
+            }
+        }
+
+        async function viewStudent(id) {
+            try {
+                const response = await api.student.getById(id);
+                showResponse('students-response', response);
+            } catch (error) {
+                showResponse('students-response', { error: error.message }, true);
+            }
+        }
+
+        async function deleteStudent(id) {
+            if (!confirm('确定要删除这个学生吗？')) return;
+
+            try {
+                const response = await api.student.delete(id);
+                showResponse('students-response', response);
+                loadStudents();
+            } catch (error) {
+                showResponse('students-response', { error: error.message }, true);
+            }
+        }
+
+        // ============ 教师相关函数 ============
+
+        async function loadTeachers() {
+            const loading = document.getElementById('teachers-loading');
+            loading.classList.add('active');
+
+            try {
+                const response = await api.teacher.getList({ page: 1, page_size: 10 });
+                showResponse('teachers-response', response);
+
+                if (response.data && response.data.items) {
+                    renderTeachersTable(response.data.items);
+                }
+            } catch (error) {
+                showResponse('teachers-response', { error: error.message }, true);
+            } finally {
+                loading.classList.remove('active');
+            }
+        }
+
+        function renderTeachersTable(teachers) {
+            const tableContainer = document.getElementById('teachers-table');
+
+            if (!teachers || teachers.length === 0) {
+                tableContainer.innerHTML = '<p style="text-align: center; color: #999;">暂无数据</p>';
+                return;
+            }
+
+            let html = `
+                <table>
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>工号</th>
+                            <th>姓名</th>
+                            <th>性别</th>
+                            <th>部门</th>
+                            <th>职位</th>
+                            <th>办公室</th>
+                            <th>操作</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+            `;
+
+            teachers.forEach(teacher => {
+                html += `
+                    <tr>
+                        <td><small>${teacher.id || ''}</small></td>
+                        <td>${teacher.teacher_id || ''}</td>
+                        <td>${teacher.name || ''}</td>
+                        <td>${teacher.gender || ''}</td>
+                        <td>${teacher.department || ''}</td>
+                        <td>${teacher.position || ''}</td>
+                        <td>${teacher.office || ''}</td>
+                        <td>
+                            <div class="actions">
+                                <button class="btn btn-primary" style="padding: 5px 10px;" onclick="viewTeacher('${teacher.id}')">查看</button>
+                                <button class="btn btn-danger" style="padding: 5px 10px;" onclick="deleteTeacher('${teacher.id}')">删除</button>
+                            </div>
+                        </td>
+                    </tr>
+                `;
+            });
+
+            html += '</tbody></table>';
+            tableContainer.innerHTML = html;
+        }
+
+        function showAddTeacherForm() {
+            document.getElementById('add-teacher-form').style.display = 'block';
+        }
+
+        function hideAddTeacherForm() {
+            document.getElementById('add-teacher-form').style.display = 'none';
+        }
+
+        async function addTeacher() {
+            const data = {
+                name: document.getElementById('teacher-name').value,
+                teacher_id: document.getElementById('teacher-teacher-id').value,
+                gender: document.getElementById('teacher-gender').value,
+                department: document.getElementById('teacher-department').value,
+                position: document.getElementById('teacher-position').value,
+                office: document.getElementById('teacher-office').value,
+                phone_number: document.getElementById('teacher-phone').value
+            };
+
+            if (!data.name || !data.teacher_id) {
+                alert('请填写必填字段（姓名和工号）');
+                return;
+            }
+
+            try {
+                const response = await api.teacher.create(data);
+                showResponse('teachers-response', response);
+                hideAddTeacherForm();
+                loadTeachers();
+            } catch (error) {
+                showResponse('teachers-response', { error: error.message }, true);
+            }
+        }
+
+        async function viewTeacher(id) {
+            try {
+                const response = await api.teacher.getById(id);
+                showResponse('teachers-response', response);
+            } catch (error) {
+                showResponse('teachers-response', { error: error.message }, true);
+            }
+        }
+
+        async function deleteTeacher(id) {
+            if (!confirm('确定要删除这个教师吗？')) return;
+
+            try {
+                const response = await api.teacher.delete(id);
+                showResponse('teachers-response', response);
+                loadTeachers();
+            } catch (error) {
+                showResponse('teachers-response', { error: error.message }, true);
+            }
+        }
+
+        // ============ 课程相关函数 ============
+
+        async function loadCourses() {
+            const loading = document.getElementById('courses-loading');
+            loading.classList.add('active');
+
+            try {
+                const response = await api.course.getList({ page: 1, page_size: 10 });
+                showResponse('courses-response', response);
+
+                if (response.data && response.data.items) {
+                    renderCoursesTable(response.data.items);
+                }
+            } catch (error) {
+                showResponse('courses-response', { error: error.message }, true);
+            } finally {
+                loading.classList.remove('active');
+            }
+        }
+
+        function renderCoursesTable(courses) {
+            const tableContainer = document.getElementById('courses-table');
+
+            if (!courses || courses.length === 0) {
+                tableContainer.innerHTML = '<p style="text-align: center; color: #999;">暂无数据</p>';
+                return;
+            }
+
+            let html = `
+                <table>
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>课程编号</th>
+                            <th>课程名称</th>
+                            <th>教师</th>
+                            <th>学分</th>
+                            <th>类型</th>
+                            <th>学期</th>
+                            <th>当前/最大人数</th>
+                            <th>操作</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+            `;
+
+            courses.forEach(course => {
+                html += `
+                    <tr>
+                        <td><small>${course.id || ''}</small></td>
+                        <td>${course.course_id || ''}</td>
+                        <td>${course.course_name || ''}</td>
+                        <td>${course.teacher_name || course.teacher_id || ''}</td>
+                        <td>${course.credits || ''}</td>
+                        <td><span class="badge badge-success">${course.course_type || ''}</span></td>
+                        <td>${course.semester || ''}</td>
+                        <td>${course.current_students || 0}/${course.max_students || 0}</td>
+                        <td>
+                            <div class="actions">
+                                <button class="btn btn-primary" style="padding: 5px 10px;" onclick="viewCourse('${course.id}')">查看</button>
+                                <button class="btn btn-danger" style="padding: 5px 10px;" onclick="deleteCourse('${course.id}')">删除</button>
+                            </div>
+                        </td>
+                    </tr>
+                `;
+            });
+
+            html += '</tbody></table>';
+            tableContainer.innerHTML = html;
+        }
+
+        function showAddCourseForm() {
+            document.getElementById('add-course-form').style.display = 'block';
+        }
+
+        function hideAddCourseForm() {
+            document.getElementById('add-course-form').style.display = 'none';
+        }
+
+        async function addCourse() {
+            const data = {
+                course_id: document.getElementById('course-course-id').value,
+                course_name: document.getElementById('course-name').value,
+                teacher_id: document.getElementById('course-teacher-id').value,
+                credits: parseFloat(document.getElementById('course-credits').value) || 0,
+                max_students: parseInt(document.getElementById('course-max-students').value) || 0,
+                course_type: document.getElementById('course-type').value,
+                semester: document.getElementById('course-semester').value,
+                description: document.getElementById('course-description').value
+            };
+
+            if (!data.course_id || !data.course_name || !data.teacher_id) {
+                alert('请填写必填字段（课程编号、课程名称、授课教师ID）');
+                return;
+            }
+
+            try {
+                const response = await api.course.create(data);
+                showResponse('courses-response', response);
+                hideAddCourseForm();
+                loadCourses();
+            } catch (error) {
+                showResponse('courses-response', { error: error.message }, true);
+            }
+        }
+
+        async function viewCourse(id) {
+            try {
+                const response = await api.course.getById(id);
+                showResponse('courses-response', response);
+            } catch (error) {
+                showResponse('courses-response', { error: error.message }, true);
+            }
+        }
+
+        async function deleteCourse(id) {
+            if (!confirm('确定要删除这门课程吗？')) return;
+
+            try {
+                const response = await api.course.delete(id);
+                showResponse('courses-response', response);
+                loadCourses();
+            } catch (error) {
+                showResponse('courses-response', { error: error.message }, true);
+            }
+        }
+
+        // 页面加载时自动加载学生列表
+        window.onload = function() {
+            loadStudents();
+        };
+    </script>
+</body>
+</html>

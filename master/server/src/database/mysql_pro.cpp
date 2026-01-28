@@ -55,6 +55,11 @@ MYSQL* chenglei::MySQLClient::get() {
     return conn_;
 }
 
+chenglei::MySQLLockedConnection chenglei::MySQLClient::getLocked() {
+    std::unique_lock<std::mutex> lock(mutex_);
+    return MySQLLockedConnection(conn_, std::move(lock));
+}
+
 bool chenglei::MySQLClient::isConnected() const {
     return connected_;
 }

@@ -1,0 +1,885 @@
+openapi: 3.0.0
+info:
+  title: BoostPro 教育管理系统 API
+  description: |
+    BoostPro教育管理系统的RESTful API文档。
+
+    ## 认证
+
+    大部分API需要JWT认证。请在请求头中添加：
+    ```
+    Authorization: Bearer <your_token>
+    ```
+
+  version: 1.0.0
+  contact:
+    name: BoostPro Team
+    email: support@boostpro.com
+
+servers:
+  - url: http://localhost:20080/api/v1
+    description: 本地开发服务器
+  - url: http://10.211.55.5:20080/api/v1
+    description: 内网测试服务器
+
+tags:
+  - name: Students
+    description: 学生管理
+  - name: Teachers
+    description: 教师管理
+  - name: Courses
+    description: 课程管理
+  - name: Enrollments
+    description: 选课管理
+  - name: Auth
+    description: 认证授权
+
+paths:
+  /students:
+    get:
+      tags:
+        - Students
+      summary: 获取学生列表
+      description: 获取学生列表，支持分页、搜索和过滤
+      parameters:
+        - name: page
+          in: query
+          description: 页码
+          required: false
+          schema:
+            type: integer
+            default: 1
+            minimum: 1
+        - name: page_size
+          in: query
+          description: 每页数量
+          required: false
+          schema:
+            type: integer
+            default: 20
+            minimum: 1
+            maximum: 100
+        - name: keyword
+          in: query
+          description: 搜索关键词（姓名或学号）
+          required: false
+          schema:
+            type: string
+        - name: grade
+          in: query
+          description: 年级
+          required: false
+          schema:
+            type: string
+            example: "2024"
+        - name: major
+          in: query
+          description: 专业
+          required: false
+          schema:
+            type: string
+            example: "计算机科学与技术"
+        - name: sort_by
+          in: query
+          description: 排序字段
+          required: false
+          schema:
+            type: string
+            enum: [name, student_id, grade, created_at]
+            default: created_at
+        - name: order
+          in: query
+          description: 排序方向
+          required: false
+          schema:
+            type: string
+            enum: [asc, desc]
+            default: desc
+      responses:
+        '200':
+          description: 成功
+          content:
+            application/json:
+              schema:
+                allOf:
+                  - $ref: '#/components/schemas/ApiResponse'
+                  - type: object
+                    properties:
+                      data:
+                        type: object
+                        properties:
+                          items:
+                            type: array
+                            items:
+                              $ref: '#/components/schemas/Student'
+                          pagination:
+                            $ref: '#/components/schemas/Pagination'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+
+    post:
+      tags:
+        - Students
+      summary: 创建学生
+      description: 创建新的学生记录
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/StudentCreate'
+      responses:
+        '201':
+          description: 创建成功
+          content:
+            application/json:
+              schema:
+                allOf:
+                  - $ref: '#/components/schemas/ApiResponse'
+                  - type: object
+                    properties:
+                      data:
+                        $ref: '#/components/schemas/Student'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '409':
+          $ref: '#/components/responses/Conflict'
+
+  /students/{id}:
+    get:
+      tags:
+        - Students
+      summary: 获取单个学生
+      parameters:
+        - $ref: '#/components/parameters/StudentId'
+      responses:
+        '200':
+          description: 成功
+          content:
+            application/json:
+              schema:
+                allOf:
+                  - $ref: '#/components/schemas/ApiResponse'
+                  - type: object
+                    properties:
+                      data:
+                        $ref: '#/components/schemas/Student'
+        '404':
+          $ref: '#/components/responses/NotFound'
+
+    put:
+      tags:
+        - Students
+      summary: 更新学生（全部字段）
+      parameters:
+        - $ref: '#/components/parameters/StudentId'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/StudentCreate'
+      responses:
+        '200':
+          description: 更新成功
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '404':
+          $ref: '#/components/responses/NotFound'
+
+    patch:
+      tags:
+        - Students
+      summary: 部分更新学生
+      parameters:
+        - $ref: '#/components/parameters/StudentId'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                  example: "张三"
+                phone_number:
+                  type: string
+                  example: "13800138000"
+                address:
+                  type: string
+                  example: "北京市"
+      responses:
+        '200':
+          description: 更新成功
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '404':
+          $ref: '#/components/responses/NotFound'
+
+    delete:
+      tags:
+        - Students
+      summary: 删除学生
+      parameters:
+        - $ref: '#/components/parameters/StudentId'
+      responses:
+        '204':
+          description: 删除成功
+        '404':
+          $ref: '#/components/responses/NotFound'
+
+  /teachers:
+    get:
+      tags:
+        - Teachers
+      summary: 获取教师列表
+      parameters:
+        - name: page
+          in: query
+          schema:
+            type: integer
+            default: 1
+        - name: page_size
+          in: query
+          schema:
+            type: integer
+            default: 20
+        - name: keyword
+          in: query
+          schema:
+            type: string
+        - name: department
+          in: query
+          schema:
+            type: string
+            example: "计算机学院"
+      responses:
+        '200':
+          description: 成功
+          content:
+            application/json:
+              schema:
+                allOf:
+                  - $ref: '#/components/schemas/ApiResponse'
+                  - type: object
+                    properties:
+                      data:
+                        type: object
+                        properties:
+                          items:
+                            type: array
+                            items:
+                              $ref: '#/components/schemas/Teacher'
+                          pagination:
+                            $ref: '#/components/schemas/Pagination'
+
+    post:
+      tags:
+        - Teachers
+      summary: 创建教师
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TeacherCreate'
+      responses:
+        '201':
+          description: 创建成功
+          content:
+            application/json:
+              schema:
+                allOf:
+                  - $ref: '#/components/schemas/ApiResponse'
+                  - type: object
+                    properties:
+                      data:
+                        $ref: '#/components/schemas/Teacher'
+
+  /teachers/{id}:
+    get:
+      tags:
+        - Teachers
+      summary: 获取单个教师
+      parameters:
+        - $ref: '#/components/parameters/TeacherId'
+      responses:
+        '200':
+          description: 成功
+          content:
+            application/json:
+              schema:
+                allOf:
+                  - $ref: '#/components/schemas/ApiResponse'
+                  - type: object
+                    properties:
+                      data:
+                        $ref: '#/components/schemas/Teacher'
+        '404':
+          $ref: '#/components/responses/NotFound'
+
+    put:
+      tags:
+        - Teachers
+      summary: 更新教师
+      parameters:
+        - $ref: '#/components/parameters/TeacherId'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TeacherCreate'
+      responses:
+        '200':
+          description: 更新成功
+        '404':
+          $ref: '#/components/responses/NotFound'
+
+    delete:
+      tags:
+        - Teachers
+      summary: 删除教师
+      parameters:
+        - $ref: '#/components/parameters/TeacherId'
+      responses:
+        '204':
+          description: 删除成功
+        '404':
+          $ref: '#/components/responses/NotFound'
+
+  /courses:
+    get:
+      tags:
+        - Courses
+      summary: 获取课程列表
+      parameters:
+        - name: page
+          in: query
+          schema:
+            type: integer
+            default: 1
+        - name: page_size
+          in: query
+          schema:
+            type: integer
+            default: 20
+        - name: keyword
+          in: query
+          schema:
+            type: string
+        - name: course_type
+          in: query
+          schema:
+            type: string
+            enum: [必修, 选修, 专业选修]
+        - name: semester
+          in: query
+          schema:
+            type: string
+            example: "2024-春季"
+      responses:
+        '200':
+          description: 成功
+          content:
+            application/json:
+              schema:
+                allOf:
+                  - $ref: '#/components/schemas/ApiResponse'
+                  - type: object
+                    properties:
+                      data:
+                        type: object
+                        properties:
+                          items:
+                            type: array
+                            items:
+                              $ref: '#/components/schemas/Course'
+                          pagination:
+                            $ref: '#/components/schemas/Pagination'
+
+    post:
+      tags:
+        - Courses
+      summary: 创建课程
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CourseCreate'
+      responses:
+        '201':
+          description: 创建成功
+          content:
+            application/json:
+              schema:
+                allOf:
+                  - $ref: '#/components/schemas/ApiResponse'
+                  - type: object
+                    properties:
+                      data:
+                        $ref: '#/components/schemas/Course'
+
+  /courses/{id}:
+    get:
+      tags:
+        - Courses
+      summary: 获取单个课程
+      parameters:
+        - $ref: '#/components/parameters/CourseId'
+      responses:
+        '200':
+          description: 成功
+          content:
+            application/json:
+              schema:
+                allOf:
+                  - $ref: '#/components/schemas/ApiResponse'
+                  - type: object
+                    properties:
+                      data:
+                        $ref: '#/components/schemas/Course'
+        '404':
+          $ref: '#/components/responses/NotFound'
+
+    put:
+      tags:
+        - Courses
+      summary: 更新课程
+      parameters:
+        - $ref: '#/components/parameters/CourseId'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CourseCreate'
+      responses:
+        '200':
+          description: 更新成功
+        '404':
+          $ref: '#/components/responses/NotFound'
+
+    delete:
+      tags:
+        - Courses
+      summary: 删除课程
+      parameters:
+        - $ref: '#/components/parameters/CourseId'
+      responses:
+        '204':
+          description: 删除成功
+        '404':
+          $ref: '#/components/responses/NotFound'
+
+components:
+  schemas:
+    ApiResponse:
+      type: object
+      required:
+        - code
+        - message
+        - timestamp
+      properties:
+        code:
+          type: integer
+          description: HTTP状态码
+          example: 200
+        message:
+          type: string
+          description: 响应消息
+          example: "success"
+        timestamp:
+          type: string
+          format: date-time
+          description: 响应时间戳
+          example: "2026-01-09T22:30:00Z"
+
+    Pagination:
+      type: object
+      required:
+        - page
+        - page_size
+        - total
+        - total_pages
+      properties:
+        page:
+          type: integer
+          example: 1
+        page_size:
+          type: integer
+          example: 20
+        total:
+          type: integer
+          example: 100
+        total_pages:
+          type: integer
+          example: 5
+
+    Student:
+      type: object
+      properties:
+        id:
+          type: string
+          description: 学生ID（雪花ID）
+          example: "123456789012345678"
+        name:
+          type: string
+          example: "张三"
+        student_id:
+          type: string
+          description: 学号
+          example: "S20240001"
+        gender:
+          type: string
+          enum: [男, 女]
+          example: "男"
+        birth_date:
+          type: string
+          format: date
+          example: "2000-01-01"
+        grade:
+          type: string
+          example: "2024"
+        class_name:
+          type: string
+          example: "计算机1班"
+        major:
+          type: string
+          example: "计算机科学与技术"
+        address:
+          type: string
+          example: "北京市"
+        phone_number:
+          type: string
+          example: "13800138000"
+        email:
+          type: string
+          format: email
+          example: "zhangsan@example.com"
+        created_at:
+          type: string
+          format: date-time
+        updated_at:
+          type: string
+          format: date-time
+
+    StudentCreate:
+      type: object
+      required:
+        - name
+        - student_id
+      properties:
+        name:
+          type: string
+          example: "张三"
+        student_id:
+          type: string
+          example: "S20240001"
+        gender:
+          type: string
+          enum: [男, 女]
+        birth_date:
+          type: string
+          format: date
+        grade:
+          type: string
+        class_name:
+          type: string
+        major:
+          type: string
+        address:
+          type: string
+        phone_number:
+          type: string
+        email:
+          type: string
+          format: email
+
+    Teacher:
+      type: object
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+          example: "王教授"
+        teacher_id:
+          type: string
+          example: "T001"
+        gender:
+          type: string
+          enum: [男, 女]
+        birth_date:
+          type: string
+          format: date
+        department:
+          type: string
+          example: "计算机学院"
+        position:
+          type: string
+          example: "教授"
+        office:
+          type: string
+          example: "A101"
+        phone_number:
+          type: string
+        email:
+          type: string
+          format: email
+        created_at:
+          type: string
+          format: date-time
+        updated_at:
+          type: string
+          format: date-time
+
+    TeacherCreate:
+      type: object
+      required:
+        - name
+        - teacher_id
+      properties:
+        name:
+          type: string
+        teacher_id:
+          type: string
+        gender:
+          type: string
+          enum: [男, 女]
+        birth_date:
+          type: string
+          format: date
+        department:
+          type: string
+        position:
+          type: string
+        office:
+          type: string
+        phone_number:
+          type: string
+        email:
+          type: string
+          format: email
+
+    Course:
+      type: object
+      properties:
+        id:
+          type: string
+        course_id:
+          type: string
+          example: "C001"
+        course_name:
+          type: string
+          example: "数据结构"
+        teacher_id:
+          type: string
+        teacher_name:
+          type: string
+        credits:
+          type: number
+          format: double
+          example: 3.0
+        max_students:
+          type: integer
+          example: 100
+        current_students:
+          type: integer
+          example: 45
+        course_type:
+          type: string
+          enum: [必修, 选修, 专业选修]
+        semester:
+          type: string
+          example: "2024-春季"
+        description:
+          type: string
+        schedules:
+          type: array
+          items:
+            type: object
+            properties:
+              day_of_week:
+                type: string
+                example: "周一"
+              start_time:
+                type: string
+                example: "08:00"
+              end_time:
+                type: string
+                example: "09:40"
+              location:
+                type: string
+                example: "A101"
+              week_range:
+                type: string
+                example: "1-16周"
+        created_at:
+          type: string
+          format: date-time
+        updated_at:
+          type: string
+          format: date-time
+
+    CourseCreate:
+      type: object
+      required:
+        - course_id
+        - course_name
+        - teacher_id
+      properties:
+        course_id:
+          type: string
+        course_name:
+          type: string
+        teacher_id:
+          type: string
+        credits:
+          type: number
+          format: double
+        max_students:
+          type: integer
+        course_type:
+          type: string
+          enum: [必修, 选修, 专业选修]
+        semester:
+          type: string
+        description:
+          type: string
+        schedules:
+          type: array
+          items:
+            type: object
+            properties:
+              day_of_week:
+                type: string
+              start_time:
+                type: string
+              end_time:
+                type: string
+              location:
+                type: string
+              week_range:
+                type: string
+
+    Error:
+      type: object
+      required:
+        - code
+        - message
+        - error
+      properties:
+        code:
+          type: integer
+        message:
+          type: string
+        error:
+          type: object
+          properties:
+            type:
+              type: string
+            details:
+              oneOf:
+                - type: string
+                - type: array
+                  items:
+                    type: object
+            field:
+              type: string
+            value:
+              type: string
+
+  parameters:
+    StudentId:
+      name: id
+      in: path
+      required: true
+      description: 学生ID（雪花ID）
+      schema:
+        type: string
+      example: "123456789012345678"
+
+    TeacherId:
+      name: id
+      in: path
+      required: true
+      description: 教师ID（雪花ID）
+      schema:
+        type: string
+      example: "123456789012345678"
+
+    CourseId:
+      name: id
+      in: path
+      required: true
+      description: 课程ID（雪花ID）
+      schema:
+        type: string
+      example: "123456789012345678"
+
+  responses:
+    BadRequest:
+      description: 请求参数错误
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+          example:
+            code: 400
+            message: "Bad Request"
+            error:
+              type: "ValidationError"
+              details: "姓名字段不能为空"
+
+    Unauthorized:
+      description: 未认证
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+          example:
+            code: 401
+            message: "Unauthorized"
+            error:
+              type: "UnauthorizedError"
+              details: "Authentication required"
+
+    NotFound:
+      description: 资源不存在
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+          example:
+            code: 404
+            message: "Student Not Found"
+            error:
+              type: "NotFoundError"
+              details: "ID为123的学生不存在"
+
+    Conflict:
+      description: 资源冲突
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+          example:
+            code: 409
+            message: "Duplicate Student ID"
+            error:
+              type: "DuplicateError"
+              field: "student_id"
+              value: "S20240001"

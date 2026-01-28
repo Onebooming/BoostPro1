@@ -54,7 +54,12 @@ std::string StudentController::query_student(const std::string& id, const std::s
             transStuObj2Json(stu, stuJson);
             arr.push_back(stuJson);
         }
-        result = arr;
+        // 返回标准API响应格式
+        result = {
+            {"code", 200},
+            {"message", "success"},
+            {"data", arr}
+        };
     }
     return result.dump();
 }

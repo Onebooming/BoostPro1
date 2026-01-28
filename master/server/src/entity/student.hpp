@@ -2,7 +2,7 @@
  * @Author: Onebooming 1026781822@qq.com
  * @Date: 2025-06-21 17:08:12
  * @LastEditors: Onebooming 1026781822@qq.com
- * @LastEditTime: 2025-07-22 23:57:24
+ * @LastEditTime: 2025-07-23 00:46:36
  * @FilePath: /BoostPro1/master/server/src/entity/student.hpp
  * @Description: student相关实例类
  */
@@ -57,7 +57,7 @@ public:
 
     unsigned int addStudent(std::unique_ptr<StudentBaseInfo> np_student);
     void removeStudentByStuId(std::string & student_id);
-    const StudentBaseInfo * getStudentByStuId(std::string & student_id) const;
+    const StudentBaseInfo * getStudentByStuId(std::string & student_id);
     std::vector<StudentBaseInfo *> getAllStudentList(void);
 
 private:

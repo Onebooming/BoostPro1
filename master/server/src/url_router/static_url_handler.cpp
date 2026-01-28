@@ -62,8 +62,18 @@ int StaticUrlHandler::url_handler(http::request<http::string_body> &request, htt
     const std::string prefix = "/static/";
     std::string url = request.target().to_string();
 
-    // 检查前缀
-    if ((url.compare(0, prefix.size(), prefix) != 0) && (url.compare("//") != 0)){
+    // 去除查询参数
+    size_t qpos = url.find('?');
+    if (qpos != std::string::npos) {
+        url = url.substr(0, qpos);
+    }
+
+    // 检查前缀或是否是根路径的html文件
+    bool is_static_path = (url.compare(0, prefix.size(), prefix) == 0);
+    bool is_root_html = (url == "/" ||
+                         (url.size() > 5 && url[0] == '/' && ends_with(url, ".html")));
+
+    if (!is_static_path && !is_root_html) {
         response.version(request.version());
         response.result(http::status::not_found);
         response.set(http::field::server, "Boost.Beast");
@@ -74,9 +84,18 @@ int StaticUrlHandler::url_handler(http::request<http::string_body> &request, htt
         return 0;
     }
 
-    // 获取html名
-    std::string file_name = url.substr(prefix.size());
-    if (file_name.empty()) file_name = "adminlte/index.html"; // 允许 / 映射到 static/adminlte/index.html
+    // 获取文件名
+    std::string file_name;
+    if (url == "/") {
+        file_name = "index.html"; // 根路径映射到 index.html
+    } else if (is_static_path) {
+        file_name = url.substr(prefix.size()); // /static/ 路径去掉前缀
+        if (file_name.empty()) file_name = "adminlte/index.html"; // /static/ 映射到 adminlte/index.html
+    } else {
+        // 根路径下的 .html 文件 (如 /api-demo.html)
+        file_name = url.substr(1); // 去掉开头的 /
+    }
+
     std::string file_path = "static/" + file_name;
 
     std::string html_content = read_file_to_string(file_path);

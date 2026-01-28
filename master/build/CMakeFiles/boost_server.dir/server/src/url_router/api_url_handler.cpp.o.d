@@ -1489,4 +1489,32 @@ CMakeFiles/boost_server.dir/server/src/url_router/api_url_handler.cpp.o: \
  /home/parallels/chenglei_work/2025/BoostPro1/master/server/src/url_router/../api_router/api_router.hpp \
  /home/parallels/chenglei_work/2025/BoostPro1/master/server/src/url_router/../api_router/../controller/base_controller.hpp \
  /home/parallels/chenglei_work/2025/BoostPro1/master/server/src/url_router/../api_router/../controller/../../../public/json.hpp \
- /home/parallels/chenglei_work/2025/BoostPro1/master/server/src/url_router/../controller/student_controller.hpp
+ /home/parallels/chenglei_work/2025/BoostPro1/master/server/src/url_router/../controller/student_controller.hpp \
+ /home/parallels/chenglei_work/2025/BoostPro1/master/server/src/url_router/../controller/teacher_controller.hpp \
+ /home/parallels/chenglei_work/2025/BoostPro1/master/server/src/url_router/../controller/../entity/teacher.hpp \
+ /home/parallels/chenglei_work/2025/BoostPro1/master/server/src/url_router/../controller/../entity/personbase.hpp \
+ /home/parallels/chenglei_work/2025/BoostPro1/master/server/src/url_router/../controller/../entity/../utils/snowflake.hpp \
+ /home/parallels/chenglei_work/2025/BoostPro1/master/server/src/url_router/../controller/course_controller.hpp \
+ /home/parallels/chenglei_work/2025/BoostPro1/master/server/src/url_router/../controller/../entity/course.hpp \
+ /home/parallels/chenglei_work/2025/BoostPro1/master/server/src/url_router/../controller/../entity/../utils/date_time_utils.hpp \
+ /home/parallels/chenglei_work/2025/BoostPro1/master/server/src/url_router/../controller/classroom_controller.hpp \
+ /home/parallels/chenglei_work/2025/BoostPro1/master/server/src/dao/classroom_dao.hpp \
+ /home/parallels/chenglei_work/2025/BoostPro1/master/server/src/dao/../entity/classroom.hpp \
+ /home/parallels/chenglei_work/2025/BoostPro1/master/server/src/url_router/../controller/../../../public/json.hpp \
+ /home/parallels/chenglei_work/2025/BoostPro1/master/server/src/url_router/../controller/news_controller.hpp \
+ /home/parallels/chenglei_work/2025/BoostPro1/master/server/src/dao/news_dao.hpp \
+ /home/parallels/chenglei_work/2025/BoostPro1/master/server/src/entity/news.hpp \
+ /home/parallels/chenglei_work/2025/BoostPro1/master/server/src/url_router/../controller/notification_controller_wrapper.hpp \
+ /home/parallels/chenglei_work/2025/BoostPro1/master/server/src/url_router/../controller/notification_controller.hpp \
+ /home/parallels/chenglei_work/2025/BoostPro1/master/server/src/dao/notification_dao.hpp \
+ /home/parallels/chenglei_work/2025/BoostPro1/master/server/src/entity/notification.hpp \
+ /usr/include/mysql/mysql.h \
+ /usr/lib/gcc/x86_64-linux-gnu/10/include/stdbool.h \
+ /usr/include/mysql/field_types.h /usr/include/mysql/my_list.h \
+ /usr/include/mysql/mysql_com.h /usr/include/mysql/my_command.h \
+ /usr/include/mysql/my_compress.h \
+ /usr/include/mysql/udf_registration_types.h \
+ /usr/include/mysql/client_plugin.h /usr/include/c++/10/stdlib.h \
+ /usr/include/mysql/plugin_auth_common.h \
+ /usr/include/mysql/mysql_version.h /usr/include/mysql/mysql_time.h \
+ /usr/include/mysql/errmsg.h

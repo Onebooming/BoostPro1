@@ -15,6 +15,7 @@ unsigned StudentMgr::addStudent(std::unique_ptr<StudentBaseInfo> np_student){
     if(nullptr == np_student) {
         return ERROR_INVALID_PARAM;
     }
+    std::lock_guard<std::mutex> lock(mutex_);
     const std::string &stuid = np_student->getStudentID();
     if (student_map_.find(stuid) != student_map_.end())
     {
@@ -25,13 +26,28 @@ unsigned StudentMgr::addStudent(std::unique_ptr<StudentBaseInfo> np_student){
 }
 
 void StudentMgr::removeStudentByStuId(std::string & student_id) {
-    student_map_.erase(student_id); // todo check
+    std::lock_guard<std::mutex> lock(mutex_);
+    student_map_.erase(student_id); 
 }
-const StudentBaseInfo * StudentMgr::getStudentByStuId(std::string & student_id) const{
+
+const StudentBaseInfo* StudentMgr::getStudentByStuId(std::string & student_id) {
+    std::lock_guard<std::mutex> lock(mutex_);
+    auto it = student_map_.find(student_id);
+    if(it != student_map_.end())
+    {
+        return it->second.get();
+    }
+
     return nullptr; // todo coding
 }
+
 std::vector<StudentBaseInfo *> StudentMgr::getAllStudentList(void) {
-    std::vector<StudentBaseInfo *> result; // todo coding
+    std::lock_guard<std::mutex> lock(mutex_);
+    std::vector<StudentBaseInfo *> result;
+    for(auto& item : student_map_) {
+        result.push_back(item.second.get());
+    }
+
     return result;
 }
 

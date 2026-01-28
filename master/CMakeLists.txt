@@ -64,4 +64,10 @@ add_custom_command(TARGET boost_server POST_BUILD
             $<TARGET_FILE_DIR:boost_server>/static/adminlte
 )
 
+add_custom_command(TARGET boost_server POST_BUILD
+    COMMAND ${CMAKE_COMMAND} -E copy
+            ${CMAKE_SOURCE_DIR}/server/src/static/index.html
+            $<TARGET_FILE_DIR:boost_server>/index.html
+)
+
 # 如果客户端也需要 static，可以加上类似的命令

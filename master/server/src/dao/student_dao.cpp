@@ -30,7 +30,9 @@ StudentBaseInfo row_to_student(const MYSQL_ROW row) {
 bool StudentDao::insertStudent(const StudentBaseInfo& student) {
     auto conn_client = MySQLConnectionManager::instance().getConnection("boostpro1", "127.0.0.1", "root", "root", 3306);
     if (!conn_client) return false;
-    MYSQL* conn = conn_client->get();
+    // 使用RAII锁守卫，在整个操作期间持有锁
+    auto locked_conn = conn_client->getLocked();
+    MYSQL* conn = locked_conn.get();
 
     std::string sql =
         "INSERT INTO students (id, name, birth_date, address, gender, hobby, phone_number, father_name, mother_name, grade, class_name, major, student_id) "
@@ -52,7 +54,9 @@ bool StudentDao::insertStudent(const StudentBaseInfo& student) {
 bool StudentDao::deleteStudentById(const std::string& id) {
     auto conn_client = MySQLConnectionManager::instance().getConnection("boostpro1", "127.0.0.1", "root", "root", 3306);
     if (!conn_client) return false;
-    MYSQL* conn = conn_client->get();
+    // 使用RAII锁守卫，在整个操作期间持有锁
+    auto locked_conn = conn_client->getLocked();
+    MYSQL* conn = locked_conn.get();
 
     std::string sql = "DELETE FROM students WHERE id='" + id + "'";
     int ret = mysql_query(conn, sql.c_str());
@@ -67,7 +71,9 @@ bool StudentDao::deleteStudentById(const std::string& id) {
 bool StudentDao::updateStudent(const StudentBaseInfo& student) {
     auto conn_client = MySQLConnectionManager::instance().getConnection("boostpro1", "127.0.0.1", "root", "root", 3306);
     if (!conn_client) return false;
-    MYSQL* conn = conn_client->get();
+    // 使用RAII锁守卫，在整个操作期间持有锁
+    auto locked_conn = conn_client->getLocked();
+    MYSQL* conn = locked_conn.get();
 
     std::string sql =
         "UPDATE students SET name='" + student.getName() +
@@ -96,7 +102,9 @@ bool StudentDao::updateStudent(const StudentBaseInfo& student) {
 std::optional<StudentBaseInfo> StudentDao::selectStudentById(const std::string& id) {
     auto conn_client = MySQLConnectionManager::instance().getConnection("boostpro1", "127.0.0.1", "root", "root", 3306);
     if (!conn_client) return std::nullopt;
-    MYSQL* conn = conn_client->get();
+    // 使用RAII锁守卫，在整个操作期间持有锁
+    auto locked_conn = conn_client->getLocked();
+    MYSQL* conn = locked_conn.get();
 
     std::string sql = "SELECT * FROM students WHERE id='" + id + "'";
     int ret = mysql_query(conn, sql.c_str());
@@ -121,7 +129,9 @@ std::vector<StudentBaseInfo> StudentDao::selectAllStudents() {
     std::vector<StudentBaseInfo> vec;
     auto conn_client = MySQLConnectionManager::instance().getConnection("boostpro1", "127.0.0.1", "root", "root", 3306);
     if (!conn_client) return vec;
-    MYSQL* conn = conn_client->get();
+    // 使用RAII锁守卫，在整个操作期间持有锁
+    auto locked_conn = conn_client->getLocked();
+    MYSQL* conn = locked_conn.get();
 
     std::string sql = "SELECT * FROM students";
     int ret = mysql_query(conn, sql.c_str());
@@ -143,7 +153,9 @@ std::vector<StudentBaseInfo> StudentDao::selectAllStudents() {
 std::optional<StudentBaseInfo> StudentDao::selectStudentByStudentId(const std::string& student_id) {
     auto conn_client = MySQLConnectionManager::instance().getConnection("boostpro1", "127.0.0.1", "root", "root", 3306);
     if (!conn_client) return std::nullopt;
-    MYSQL* conn = conn_client->get();
+    // 使用RAII锁守卫，在整个操作期间持有锁
+    auto locked_conn = conn_client->getLocked();
+    MYSQL* conn = locked_conn.get();
 
     std::string sql = "SELECT * FROM students WHERE student_id='" + student_id + "'";
     int ret = mysql_query(conn, sql.c_str());
@@ -167,7 +179,9 @@ std::optional<StudentBaseInfo> StudentDao::selectStudentByStudentId(const std::s
 std::optional<StudentBaseInfo> StudentDao::selectStudentByPhone(const std::string& phone_number) {
     auto conn_client = MySQLConnectionManager::instance().getConnection("boostpro1", "127.0.0.1", "root", "root", 3306);
     if (!conn_client) return std::nullopt;
-    MYSQL* conn = conn_client->get();
+    // 使用RAII锁守卫，在整个操作期间持有锁
+    auto locked_conn = conn_client->getLocked();
+    MYSQL* conn = locked_conn.get();
 
     std::string sql = "SELECT * FROM students WHERE phone_number='" + phone_number + "'";
     int ret = mysql_query(conn, sql.c_str());
